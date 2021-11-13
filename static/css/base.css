@@ -12,6 +12,10 @@ body {
     font-family: 'Libre Franklin', sans-serif;
 }
 
+.bg-smoke {
+    background: #f7f7f7;
+}
+
 .text-black {
     color: #14161A !important;
 }
