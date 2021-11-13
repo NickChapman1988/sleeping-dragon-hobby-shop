@@ -1,3 +1,5 @@
+/* ------------------------- General */
+
 html {
     height: 100%;
 }
@@ -7,11 +9,15 @@ body {
     background-size: cover;
     height: calc(100vh - 164px);
     color: #14161A;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Libre Franklin', sans-serif;
 }
 
-#topnav {
-    color: #fff;
+.text-black {
+    color: #14161A !important;
+}
+
+.border-black {
+    border: 1px solid #14161A !important;
 }
 
 .icon {
@@ -24,11 +30,19 @@ body {
 
 .logo-font {
     text-transform: uppercase;
+    font-family: 'Lato', sans-serif;
+}
+
+/* ------------------------ Header */
+#topnav {
+    color: #fff;
 }
 
 .main-logo-link {
     width: fit-content;
 }
+
+/* ------------------------- Buttons */
 
 .shop-now-button,
 .btn-blue {
@@ -38,6 +52,7 @@ body {
 
 .shop-now-button {
     min-width: 260px;
+    font-weight: 700;
 }
 
 .btn-black {
@@ -59,10 +74,26 @@ body {
     color: #fff;
 }
 
-.text-black {
-    color: #14161A !important;
+/*-------------------------- Media Queries */
+
+/* Increase container width on xl screens */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 80%;
+    }
 }
 
-.border-black {
-    border: 1px solid #14161A !important;
+/* fixed top navbar only on large and up */
+@media (min-width: 992px) {
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    .header-container {
+        padding-top: 164px;
+    }
 }
