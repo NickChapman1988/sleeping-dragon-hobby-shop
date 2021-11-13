@@ -1,0 +1,68 @@
+html {
+    height: 100%;
+}
+
+body {
+    background: url('/media/bg-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: calc(100vh - 164px);
+    color: #14161A;
+    font-family: 'Lato', sans-serif;
+}
+
+#topnav {
+    color: #fff;
+}
+
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width:  1.5rem;
+}
+
+.logo-font {
+    text-transform: uppercase;
+}
+
+.main-logo-link {
+    width: fit-content;
+}
+
+.shop-now-button,
+.btn-blue {
+    background: #228CBD;
+    color: #fff;
+}
+
+.shop-now-button {
+    min-width: 260px;
+}
+
+.btn-black {
+    background: #14161A;
+    color: #fff;
+}
+
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus {
+    background: #1C448E;
+    color: #fff;
+}
+
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #14161A;
+    color: #fff;
+}
+
+.text-black {
+    color: #14161A !important;
+}
+
+.border-black {
+    border: 1px solid #14161A !important;
+}
