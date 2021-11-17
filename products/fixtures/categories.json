@@ -1,0 +1,154 @@
+[
+ {
+   "id": 1,
+   "model": "products.category",
+   "fields": {
+      "name": "foliage_lichen",
+      "display_name": "Foliage & Lichen"
+   }
+},
+ {
+   "id": 2,
+   "model": "products.category",
+   "fields": {
+      "name": "scenic_scatters",
+      "display_name": "Scenic Scatters"
+   }
+},
+ {
+   "id": 3,
+   "model": "products.category",
+   "fields": {
+      "name": "static_grass",
+      "display_name": "Static Grass"
+   }
+},
+ {
+   "id": 4,
+   "model": "products.category",
+   "fields": {
+      "name": "warpaints",
+      "display_name": "Warpaints"
+   }
+},
+ {
+   "id": 5,
+   "model": "products.category",
+   "fields": {
+      "name": "tufts_flowers",
+      "display_name": "Tufts & Flowers"
+   }
+},
+ {
+   "id": 6,
+   "model": "products.category",
+   "fields": {
+      "name": "colour_primers",
+      "display_name": "Colour Primers"
+   }
+},
+ {
+   "id": 7,
+   "model": "products.category",
+   "fields": {
+      "name": "quickshade",
+      "display_name": "Quickshade"
+   }
+},
+ {
+   "id": 8,
+   "model": "products.category",
+   "fields": {
+      "name": "army_brushes",
+      "display_name": "Army Painter Brushes"
+   }
+},
+ {
+   "id": 9,
+   "model": "products.category",
+   "fields": {
+      "name": "revell",
+      "display_name": "Revell"
+   }
+},
+ {
+   "id": 10,
+   "model": "products.category",
+   "fields": {
+      "name": "milliput",
+      "display_name": "Milliput"
+   }
+},
+ {
+   "id": 11,
+   "model": "products.category",
+   "fields": {
+      "name": "army_glues",
+      "display_name": "Army Painter Glues"
+   }
+},
+ {
+   "id": 12,
+   "model": "products.category",
+   "fields": {
+      "name": "army_tools",
+      "display_name": "Army Painter Hobby Tools"
+   }
+},
+ {
+   "id": 13,
+   "model": "products.category",
+   "fields": {
+      "name": "vallejo_color",
+      "display_name": "Vallejo Model Color"
+   }
+},
+ {
+   "id": 14,
+   "model": "products.category",
+   "fields": {
+      "name": "vallejo_effects",
+      "display_name": "Vallejo Diorama Effects"
+   }
+},
+ {
+   "id": 15,
+   "model": "products.category",
+   "fields": {
+      "name": "base_toppers",
+      "display_name": "Base Toppers"
+   }
+},
+ {
+   "id": 16,
+   "model": "products.category",
+   "fields": {
+      "name": "model_animals",
+      "display_name": "Model Animals"
+   }
+},
+ {
+   "id": 17,
+   "model": "products.category",
+   "fields": {
+      "name": "royal_brushes",
+      "display_name": "Royal & Langnickel Brushes"
+   }
+},
+ {
+   "id": 18,
+   "model": "products.category",
+   "fields": {
+      "name": "das_clay",
+      "display_name": "DAS Clay"
+   }
+},
+ {
+   "id": 19,
+   "model": "products.category",
+   "fields": {
+      "name": "vallejo_washes",
+      "display_name": "Vallejo Game Color Washes"
+   }
+}
+]
