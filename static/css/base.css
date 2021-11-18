@@ -37,6 +37,21 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
+.overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: #f7f7f7;
+    z-index: -1;
+}
+
+/* Override default BS margin rule */
+.logo-underline {
+    margin-left: 25%;
+}
+
 /* ------------------------ Header */
 #topnav {
     color: #fff;
@@ -76,6 +91,13 @@ body {
 .btn-black:focus {
     background: #14161A;
     color: #fff;
+}
+
+/*-------------------------- Product Images */
+
+.product-image {
+    max-width: 280px;
+    max-height: 280px;
 }
 
 /*-------------------------- Media Queries */

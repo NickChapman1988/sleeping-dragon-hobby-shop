@@ -13,10 +13,59 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">
+    <div class="overlay"></div>
+    <div class="container-fluid">
         <div class="row">
-            <div class="col">
-                {{ products }}
+            <div class="col text-center mt-3">
+                <h2 class="logo-font">Products</h2>
+                <hr class="logo-underline w-50 mb-1">
+            </div>
+        </div>
+        <div class="row">
+            <div class="product-container col-10 offset-1">
+                <div class="row mt-1 mb-2"></div>
+                <div class="row">
+                    {% for product in products %}
+                        <div class="col-sm-6 col-lg-4 col-xl-3">
+                            <div class="card bg-smoke h-100 border-0">
+                                {% if product.image %}
+                                    <a href="">
+                                        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top img-fluid border-black product-image">
+                                    </a>
+                                {% else %}
+                                    <a href="">
+                                        <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" class="card-img-top img-fluid border-black">
+                                    </a>
+                                {% endif %}
+                                <div class="card-body pb-0">
+                                    <p class="mb-0">{{ product.name }}</p>
+                                </div>
+                                <div class="card-footer bg-smoke pt-0 border-0 text-left">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="lead mb-0 text-left fw-bold">£{{ product.price }}</p>
+                                            {% if product.rating %}
+                                                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }}/5</small>
+                                            {% else %}
+                                                <small class="text-muted">No Rating</small>
+                                            {% endif %}
+                                        </div>
+                                        <div class="col">    
+                                            {% if product.stock > 0 %}
+                                                <p class="mb-0 text-right lead">Stock: {{ product.stock }}</p>
+                                            {% else %}
+                                                <p class="mb-0 text-right lead fw-bold">Out of Stock</p>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<div class="col-12 d-small-none">
+                            <hr>
+                        </div>-->
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
