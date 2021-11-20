@@ -22,12 +22,13 @@
                 Paints
             </a>
             <div class="dropdown-menu border-0 bg-smoke" aria-labelledby="paints-link">
-                <a href="" class="dropdown-item">Warpaints</a>
-                <a href="" class="dropdown-item">Vallejo Model Color</a>
-                <a href="" class="dropdown-item">Vallejo Game Color Washes</a>
-                <a href="" class="dropdown-item">Colour Primers</a>
-                <a href="" class="dropdown-item">Quickshade</a>
-                <a href="" class="dropdown-item">Vallejo Diorama Effects</a>
+                <a href="{% url 'products' %}?category=warpaints" class="dropdown-item">Warpaints</a>
+                <a href="{% url 'products' %}?category=vallejo_color" class="dropdown-item">Vallejo Model Color</a>
+                <a href="{% url 'products' %}?category=vallejo_washes" class="dropdown-item">Vallejo Game Color Washes</a>
+                <a href="{% url 'products' %}?category=colour_primers" class="dropdown-item">Colour Primers</a>
+                <a href="{% url 'products' %}?category=quickshade" class="dropdown-item">Quickshade</a>
+                <a href="{% url 'products' %}?category=vallejo_effects" class="dropdown-item">Vallejo Diorama Effects</a>
+                <a href="{% url 'products' %}?category=warpaints,vallejo_color,vallejo_washes,colour_primers,quickshade,vallejo_effects" class="dropdown-item">All Paints</a>
             </div>
         </li>
 
@@ -37,8 +38,9 @@
                 Brushes
             </a>
             <div class="dropdown-menu border-0 bg-smoke" aria-labelledby="brushes-link">
-                <a href="" class="dropdown-item">Army Painter Brushes</a>
-                <a href="" class="dropdown-item">Royal &amp; Langnickel Brushes</a>
+                <a href="{% url 'products' %}?category=army_brushes" class="dropdown-item">Army Painter Brushes</a>
+                <a href="{% url 'products' %}?category=royal_brushes" class="dropdown-item">Royal &amp; Langnickel Brushes</a>
+                <a href="{% url 'products' %}?category=army_brushes,royal_brushes" class="dropdown-item">All Brushes</a>
             </div>
         </li>
 
@@ -48,10 +50,11 @@
                 Glues & Fillers
             </a>
             <div class="dropdown-menu border-0 bg-smoke" aria-labelledby="glues-link">
-                <a href="" class="dropdown-item">DAS Clay</a>
-                <a href="" class="dropdown-item">Milliput</a>
-                <a href="" class="dropdown-item">Revell</a>
-                <a href="" class="dropdown-item">Army Painter Glues</a>
+                <a href="{% url 'products' %}?category=das_clay" class="dropdown-item">DAS Clay</a>
+                <a href="{% url 'products' %}?category=milliput" class="dropdown-item">Milliput</a>
+                <a href="{% url 'products' %}?category=revell" class="dropdown-item">Revell</a>
+                <a href="{% url 'products' %}?category=army_glues" class="dropdown-item">Army Painter Glues</a>
+                <a href="{% url 'products' %}?category=das_clay,milliput,revell,army_glues" class="dropdown-item">All Glues & Fillers</a>
             </div>
         </li>
 
@@ -61,13 +64,14 @@
                 Materials & Tools
             </a>
             <div class="dropdown-menu border-0 bg-smoke" aria-labelledby="materials-link">
-                <a href="" class="dropdown-item">Tufts &amp; Flowers</a>
-                <a href="" class="dropdown-item">Scenic Scatters</a>
-                <a href="" class="dropdown-item">Static Grass</a>
-                <a href="" class="dropdown-item">Base Toppers</a>
-                <a href="" class="dropdown-item">Foliage &amp; Lichen</a>
-                <a href="" class="dropdown-item">Model Animals</a>
-                <a href="" class="dropdown-item">Army Painter Hobby Tools</a>
+                <a href="{% url 'products' %}?category=tufts_flowers" class="dropdown-item">Tufts &amp; Flowers</a>
+                <a href="{% url 'products' %}?category=scenic_scatters" class="dropdown-item">Scenic Scatters</a>
+                <a href="{% url 'products' %}?category=static_grass" class="dropdown-item">Static Grass</a>
+                <a href="{% url 'products' %}?category=base_toppers" class="dropdown-item">Base Toppers</a>
+                <a href="{% url 'products' %}?category=foliage_lichen" class="dropdown-item">Foliage &amp; Lichen</a>
+                <a href="{% url 'products' %}?category=model_animals" class="dropdown-item">Model Animals</a>
+                <a href="{% url 'products' %}?category=army_tools" class="dropdown-item">Army Painter Hobby Tools</a>
+                <a href="{% url 'products' %}?category=tufts_flowers,scenic_scatters,static_grass,base_toppers,foliage_lichen,model_animals,army_tools" class="dropdown-item">All Materials & Tools</a>
             </div>
         </li>
 
