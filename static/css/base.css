@@ -56,6 +56,10 @@ body {
     margin-left: 25%;
 }
 
+li.list-inline-item > a.nav-link {
+    padding: 0.5rem 0.5rem;
+}
+
 /* ------------------------ Header */
 #topnav {
     color: #fff;
@@ -100,6 +104,21 @@ body {
 a.category-badge > span.badge:hover {
     background: #228CBD !important;
     color: #fff !important;
+}
+
+.btt-button {
+    height: 42px;
+    width: 42px;
+    border-radius: 50%;
+    background: #228CBD;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link {
+    cursor: pointer;
+    color: #fff;
 }
 
 /*-------------------------- Product Images */
