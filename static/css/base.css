@@ -72,9 +72,12 @@ li.list-inline-item > a.nav-link {
 /* ------------------------- Buttons */
 
 .shop-now-button,
-.btn-blue {
+.btn-blue,
+a.category-badge > span.badge:hover,
+li.nav-item > a.nav-link:hover,
+li.nav-item > a.nav-link.show {
     background: #228CBD;
-    color: #fff;
+    color: #fff !important;
 }
 
 .shop-now-button {
@@ -90,7 +93,7 @@ li.list-inline-item > a.nav-link {
 .shop-now-button:hover,
 .shop-now-button:active,
 .shop-now-button:focus {
-    background: #1C448E;
+    background: #1C448E !important;
     color: #fff;
 }
 
@@ -99,11 +102,6 @@ li.list-inline-item > a.nav-link {
 .btn-black:focus {
     background: #14161A;
     color: #fff;
-}
-
-a.category-badge > span.badge:hover {
-    background: #228CBD !important;
-    color: #fff !important;
 }
 
 .btt-button {

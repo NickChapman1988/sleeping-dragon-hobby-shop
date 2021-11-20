@@ -22,7 +22,7 @@
                 <h2 class="logo-font">Products</h2>
                 {% for category in current_categories %}
                     <a class="category-badge text-decoration-none" href="{% url 'products' %}?category={{ category.name }}">
-                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">{{ category.display_name }}</span>
+                        <span class="p-2 mt-2 badge badge-white text-black rounded-pill border">{{ category.display_name }}</span>
                     </a>
                 {% endfor %}
                 <hr class="logo-underline w-50 mb-1">
