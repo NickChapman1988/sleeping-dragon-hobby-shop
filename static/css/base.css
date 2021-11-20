@@ -24,6 +24,10 @@ body {
     border: 1px solid #14161A !important;
 }
 
+.header-container {
+        padding-top: 195px;
+}
+
 .icon {
     align-items: center;
     display: inline-flex;
@@ -49,6 +53,10 @@ body {
 
 .highlight-text {
     color: #1E7BC1;
+}
+
+.shopping-cart-highlight {
+    color: #228CBD;
 }
 
 /* Override default BS margin rule */
@@ -133,6 +141,9 @@ li.nav-item > a.nav-link.show {
     max-width: 500px;
     object-fit: scale-down;
 }
+
+
+
 /*-------------------------- Media Queries */
 
 /* Increase container width on xl screens */
@@ -151,19 +162,11 @@ li.nav-item > a.nav-link.show {
         left: 0;
         z-index: 1030;
     }
-
-    .header-container {
-        padding-top: 164px;
-    }
 }
 
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
-    .header-container {
-        padding-top: 116px;
-    }
-
     body {
-        height: calc(100vh - 116px);
+        height: calc(100vh - 195px);
     }
 }

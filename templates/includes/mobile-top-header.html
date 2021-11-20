@@ -1,6 +1,6 @@
 <!-- Adapted from Boutique Ado walkthrough project by Code Institute -->
 
-<ul>
+<ul class="ps-2">
     <li class="list-inline-item">
         <a class="text-black nav-link d-block d-lg-none" href="#" id="mobile-search" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="text-center">
@@ -44,7 +44,7 @@
         </div>
     </li>
     <li class="list-inline-item">
-        <a href="{% url 'view_cart' %}" class="{% if grand_total %}text-primary fw-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none">
+        <a href="{% url 'view_cart' %}" class="{% if grand_total %}shopping-cart-highlight fw-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none">
             <div class="text-center">
                 <div><i class="fas fa-shopping-bag fa-lg"></i></div>
                 <p class="my-0">
