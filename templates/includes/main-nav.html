@@ -81,14 +81,14 @@
                 Brands
             </a>
             <div class="dropdown-menu border-0 bg-smoke" aria-labelledby="brands-link">
-                <a href="" class="dropdown-item">The Army Painter</a>
-                <a href="" class="dropdown-item">Vallejo</a>
-                <a href="" class="dropdown-item">Javis Scenics</a>
-                <a href="" class="dropdown-item">Serious Play Scenics</a>
-                <a href="" class="dropdown-item">Revell</a>
-                <a href="" class="dropdown-item">Milliput</a>
-                <a href="" class="dropdown-item">Royal &amp; Langnickel</a>
-                <a href="" class="dropdown-item">Milliput</a>
+                <a href="{% url 'products' %}?brand=The Army Painter" class="dropdown-item">The Army Painter</a>
+                <a href="{% url 'products' %}?brand=Vallejo" class="dropdown-item">Vallejo</a>
+                <a href="{% url 'products' %}?brand=Javis Scenics" class="dropdown-item">Javis Scenics</a>
+                <a href="{% url 'products' %}?brand=Serious Play Scenics" class="dropdown-item">Serious Play Scenics</a>
+                <a href="{% url 'products' %}?brand=Revell" class="dropdown-item">Revell</a>
+                <a href="{% url 'products' %}?brand=Milliput" class="dropdown-item">Milliput</a>
+                <a href="{% url 'products' %}?brand=DAS" class="dropdown-item">DAS</a>
+                <a href="{% url 'products' %}?category=royal_brushes" class="dropdown-item">Royal &amp; Langnickel</a>
             </div>
         </li>
     </ul>
