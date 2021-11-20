@@ -92,7 +92,8 @@ li.nav-item > a.nav-link.show {
 
 .shop-now-button:hover,
 .shop-now-button:active,
-.shop-now-button:focus {
+.shop-now-button:focus,
+.btn-blue:hover {
     background: #1C448E !important;
     color: #fff;
 }
