@@ -47,6 +47,10 @@ body {
     z-index: -1;
 }
 
+.highlight-text {
+    color: #1E7BC1;
+}
+
 /* Override default BS margin rule */
 .logo-underline {
     margin-left: 25%;
@@ -91,6 +95,11 @@ body {
 .btn-black:focus {
     background: #14161A;
     color: #fff;
+}
+
+a.category-badge > span.badge:hover {
+    background: #228CBD !important;
+    color: #fff !important;
 }
 
 /*-------------------------- Product Images */
