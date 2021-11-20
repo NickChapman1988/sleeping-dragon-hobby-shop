@@ -71,9 +71,9 @@ li.list-inline-item > a.nav-link {
 
 /* ------------------------- Buttons */
 
+#delivery-banner,
 .shop-now-button,
 .btn-blue,
-#delivery-banner,
 a.category-badge > span.badge:hover,
 li.nav-item > a.nav-link:hover,
 li.nav-item > a.nav-link.show {
@@ -86,7 +86,14 @@ li.nav-item > a.nav-link.show {
     font-weight: 700;
 }
 
-.btn-black {
+.btn-outline-black {
+    background: #fff;
+    color: #14161A;
+    border: 1px solid #14161A;
+}
+
+.btn-black,
+.btn-outline-black:hover {
     background: #14161A;
     color: #fff;
 }
@@ -96,13 +103,6 @@ li.nav-item > a.nav-link.show {
 .shop-now-button:focus,
 .btn-blue:hover {
     background: #1C448E !important;
-    color: #fff;
-}
-
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
-    background: #14161A;
     color: #fff;
 }
 
