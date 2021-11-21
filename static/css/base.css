@@ -122,11 +122,18 @@ li.nav-item > a.nav-link.show {
     position: fixed;
     bottom: 10px;
     right: 10px;
+    color: #fff;
 }
+
+.update-link,
+.remove-item {
+    cursor: pointer;
+}   
 
 .btt-link {
     cursor: pointer;
     color: #fff;
+    text-decoration: none;
 }
 
 /*-------------------------- Product Images */
