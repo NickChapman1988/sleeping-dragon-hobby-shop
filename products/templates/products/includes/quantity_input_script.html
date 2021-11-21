@@ -6,7 +6,13 @@
     function handleEnableDisable(itemId) {
         var currentValue = parseInt($(`#id_qty_${itemId}`).val());
         var minusDisabled = currentValue < 2;
-        var plusDisabled = currentValue > 98;
+        // Disable + button if exceeds product stock value
+        var productStock = parseInt("{{ product.stock }}");
+        if (currentValue > productStock - 1) {
+            var plusDisabled = currentValue > productStock - 1;
+        } else {
+            var plusDisabled = currentValue > 98;
+        }
         $(`#decrement-qty_${itemId}`).prop('disabled', minusDisabled);
         $(`#increment-qty_${itemId}`).prop('disabled', plusDisabled);
     }
