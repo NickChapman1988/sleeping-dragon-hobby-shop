@@ -34,12 +34,8 @@
       <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
       <!-- Font Awesome -->
       <script src="https://kit.fontawesome.com/231124bd82.js" crossorigin="anonymous"></script>
-      <script type="text/javascript">
-        var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-        var toastList = toastElList.map(function (toastEl) {
-            return new bootstrap.Toast(toastEl, option)
-        })
-      </script>
+      <!-- Stripe -->
+      <script src="https://js.stripe.com/v3/"></script>
     {% endblock %}
 
     {% block extra_js %}
@@ -165,6 +161,5 @@
           })
         </script>                   
       {% endblock %}
-
   </body>
 </html>
