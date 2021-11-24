@@ -1,3 +1,5 @@
+# Adapted from Boutique Ado walkthrough project by Code Institute
+
 import uuid
 
 from django.db import models
@@ -62,7 +64,7 @@ class Order(models.Model):
         return self.order_number
 
 
-class OrderLineItems(models.Model):
+class OrderLineItem(models.Model):
     order = models.ForeignKey(
         Order, null=False, blank=False,
         on_delete=models.CASCADE, related_name='lineitems')
