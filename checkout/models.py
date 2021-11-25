@@ -1,7 +1,7 @@
 # Adapted from Boutique Ado walkthrough project by Code Institute
 
 import uuid
-
+from decimal import Decimal
 from django.db import models
 from django.db.models import Sum
 from django.conf import settings
@@ -11,7 +11,6 @@ from products.models import Product
 
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
-    date = models.DateTimeField(auto_now_add=True)
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
@@ -21,12 +20,10 @@ class Order(models.Model):
     street_address1 = models.CharField(max_length=80, null=False, blank=False)
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
     county = models.CharField(max_length=80, null=True, blank=True)
-    delivery_cost = models.DecimalField(
-        max_digits=6, decimal_places=2, null=False, default=0)
-    order_total = models.DecimalField(
-        max_digits=10, decimal_places=2, null=False, default=0)
-    grand_total = models.DecimalField(
-        max_digits=10, decimal_places=2, null=False, default=0)
+    date = models.DateTimeField(auto_now_add=True)
+    delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
 
     def _generate_order_number(self):
         """
@@ -39,7 +36,8 @@ class Order(models.Model):
         Update grand total each time a line item is added,
         accounting for delivery costs.
         """
-        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum']
+        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
+        self.order_total = round(Decimal(self.order_total), 2)
         if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
             self.delivery_cost = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
         else:
