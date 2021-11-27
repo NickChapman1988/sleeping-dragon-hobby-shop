@@ -1,9 +1,10 @@
+import json
+
 from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
 
-import json
 import stripe
 
 from cart.contexts import cart_contents
@@ -49,10 +50,14 @@ def checkout(request):
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid:
-            order = order_form.save()
+            order = order_form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.original_cart = json.dumps(cart)
+            order.save()
             for item_id, item_data in cart.items():
                 try:
-                    product = get_object_or_404(Product, id=item_id)
+                    product = Product.objects.get(id=item_id)
                     order_line_item = OrderLineItem(
                         order=order,
                         product=product,
@@ -70,7 +75,6 @@ def checkout(request):
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
-            return redirect(reverse('checkout'))
             messages.error(request, 'There was an error submitting your form \
                 Please check the information provided.')
     else:
