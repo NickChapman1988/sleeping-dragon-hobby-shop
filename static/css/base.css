@@ -68,6 +68,7 @@ li.list-inline-item > a.nav-link {
     padding: 0.5rem 0.5rem;
 }
 
+/* Search bar placeholder color */
 input[name='query']::placeholder {
     color: #aab7c4;
 }
