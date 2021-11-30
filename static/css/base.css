@@ -68,6 +68,10 @@ li.list-inline-item > a.nav-link {
     padding: 0.5rem 0.5rem;
 }
 
+input[name='query']::placeholder {
+    color: #aab7c4;
+}
+
 /* ------------------------- BS Toasts */
 
 .message-container {
@@ -228,6 +232,57 @@ li.nav-item > a.nav-link.show {
     max-height: 100px;
 }
 
+/*----------------- Allauth form formatting */
+
+.allauth-form-inner-content p {
+    margin-top: 1.5rem; /* mt-4 */
+    color: #6c767d; /* text-secondary */
+}
+
+.allauth-form-inner-content input {
+    border-color: #14161A;
+    border-radius: 0;
+}
+
+.allauth-form-inner-content label:not([for='id_remember']) {
+    display: none;
+}
+
+.allauth-form-inner-content input::placeholder {
+    color: #aab7c4;
+}
+
+.allauth-form-inner-content button,
+.allauth-form-inner-content input[type='submit'] {
+    display: inline-block;
+    font-weight: 400;
+    color: #14161A;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: #fff;
+    border: 1px solid #141614;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0;
+
+    /* standard bootstrap btn transitions */
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.allauth-form-inner-content button:hover,
+.allauth-form-inner-content input[type='submit']:hover {
+    color: #fff;
+    background-color: #14161A;
+}
+
+.allauth-form-inner-content a {
+    color: #17a2b8; /* text-info */
+}
+
 /*-------------------------- Media Queries */
 
 /* Increase container width on xl screens */
@@ -248,7 +303,7 @@ li.nav-item > a.nav-link.show {
     }
 }
 
-/* pad the top a bit when navbar is collapsed on mobile */
+/* pad the top when navbar is collapsed on mobile */
 @media (max-width: 991px) {
     body {
         height: calc(100vh - 195px);
