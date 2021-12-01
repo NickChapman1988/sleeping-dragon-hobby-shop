@@ -228,7 +228,8 @@ li.nav-item > a.nav-link.show {
     max-height: 200px;
 }
 
-.checkout-thumbnail {
+.checkout-thumbnail,
+.edit-thumbnail {
     max-width: 100px;
     max-height: 100px;
 }
@@ -282,6 +283,23 @@ li.nav-item > a.nav-link.show {
 
 .allauth-form-inner-content a {
     color: #17a2b8; /* text-info */
+}
+
+/*------------------------- Product Form */
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0;
+    cursor: pointer;
 }
 
 /*-------------------------- Media Queries */
