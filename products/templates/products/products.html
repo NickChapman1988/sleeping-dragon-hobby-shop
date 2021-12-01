@@ -85,9 +85,9 @@
                                         </div>
                                         <div class="col">    
                                             {% if product.stock > 0 %}
-                                                <p class="mb-0 text-left fw-bold highlight-text">{{ product.stock }} in Stock</p>
+                                            <p class="mb-0 text-left fw-bold highlight-text">{{ product.stock }} in Stock</p>
                                             {% else %}
-                                                <p class="mb-0 text-left fw-bold highlight-text">Out of Stock</p>
+                                            <p class="mb-0 text-left fw-bold highlight-text">Out of Stock</p>
                                             {% endif %}
                                             {% if product.category %}
                                             <p class="small mt-1 mb-0">
@@ -98,6 +98,16 @@
                                             {% endif %}
                                         </div>
                                     </div>
+                                    {% if request.user.is_superuser %}
+                                    <div class="row">
+                                        <div class="col">
+                                                <small class="ms-3">
+                                                    <a href="{% url 'edit_product' product.id %}" class="text-info pe-4">Edit</a>
+                                                    <a href="{% url 'delete_product' product.id %}" class="text-danger ps-4">Delete</a>
+                                                </small>        
+                                        </div>
+                                    </div>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
