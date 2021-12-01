@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 from .models import Product, Category
+from checkout.models import Order
 from .forms import ProductForm, CategoryForm
 
 
@@ -89,10 +90,14 @@ def product_management(request):
 
     products = Product.objects.all()
     categories = Category.objects.all()
+    latest_orders = Order.objects.all()[:5]
+
+    categories = categories.order_by('name')
 
     context = {
         'products': products,
         'categories': categories,
+        'latest_orders': latest_orders,
     }
 
     return render(request, 'products/product_management.html', context)
