@@ -82,6 +82,7 @@ def product_detail(request, product_id):
     return render(request, 'products/product_detail.html', context)
 
 
+@login_required
 def product_management(request):
     """ A view for admin users to manage products and categories from the storefront """
     if not request.user.is_superuser:
@@ -183,13 +184,41 @@ def add_category(request):
         if form.is_valid():
             category = form.save()
             messages.success(request, 'Successfully added category')
-            return redirect(reverse('products'))
+            return redirect(reverse('product_management'))
         else:
             messages.error(request, 'Failed to add category. Please ensure the form is valid')
     else:
         form = CategoryForm()
 
     template = 'products/add_category.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def edit_category(request, category_id):
+    """ Edit a category in the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that')
+        return redirect(reverse('home'))
+
+    category = get_object_or_404(Category, id=category_id)
+    if request.method == "POST":
+        form = CategoryForm(request.POST, instance=category)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Successfully updated {category.display_name}')
+            return redirect(reverse('product_management'))
+        else:
+            messages.error(request, 'Failed to update category. Please ensure the form is valid')
+    else:
+        form = CategoryForm(instance=category)
+        messages.info(request, f'You are editing {category.display_name}')
+
+    template = 'products/edit_category.html'
     context = {
         'form': form,
         'category': category,
