@@ -191,32 +191,3 @@ def add_category(request):
     }
 
     return render(request, template, context)
-
-
-@login_required
-def edit_category(request, category_name):
-    """ Edit a category in the store """
-    if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that')
-        return redirect(reverse('home'))
-
-    category = get_object_or_404(Category, name=category_name)
-    if request.method == "POST":
-        form = CategoryForm(request.POST, instance=category)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Successfully updated category')
-            return redirect(reverse('products'))
-        else:
-            messages.error(request, 'Failed to update category. Please ensure the form is valid')
-    else:
-        form = CategoryForm(instance=category)
-        messages.info(request, f'You are editing {category.name}')
-
-    template = 'products/edit_category.html'
-    context = {
-        'form': form,
-        'category': category,
-    }
-
-    return render(request, template, context)
