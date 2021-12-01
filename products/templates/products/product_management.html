@@ -31,14 +31,24 @@
             <div class="col-12">
                 <h5 class="logo-font text-center">Categories</h5>
                 <hr>
-                <div> 
+                <div class="mb-3"> 
                     {% for category in categories %}
                         <a href="{% url 'edit_category' category.id %}" id="edit-category-btn" class="btn btn-blue rounded-0 my-1 mx-2">{{ category.display_name }}</a>                     
                     {% endfor %}
                 </div>
+                <hr>
+                <div class="col-8 offset-2 mb-3">
+                    <select id="category-selector" class="w-50 ms-2 py-2 custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                        <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Select category...</option>
+                        {% for category in categories %}
+                            <option value="{{ category.id }}" {% if current_sorting == '{{ category.name }}' %}selected{% endif %}>{{ category.display_name }}</option>
+                        {% endfor %}
+                    </select>
+                    <a href="" id="delete-category-btn" class="btn bg-danger text-white rounded-0 my-3">Delete Category</a>
+                </div>
             </div>
         </div>            
-        <hr>
+        <hr class="mb-3">
         <div class="row">
             <div class="col">
                 <h5 class="logo-font text-center">Latest Orders</h5>
@@ -95,13 +105,13 @@
 {{ block.super }}
 <script>
     $('#category-selector').change(function() {
-            var selector = $(this);
+        var selector = $(this);
 
-            var categoryName = selector.val();
-            var urlStart = 'edit_category/'
-            if(categoryName != "reset"){
-                $('#edit-category-btn').attr("href", urlStart + categoryName + "/");
-            }
+        var categoryId = selector.val();
+        var urlStart = 'delete_category/'
+        if(categoryId != "reset"){
+            $('#delete-category-btn').attr("href", urlStart + categoryId + "/");
+        }
     });
 </script>
 {% endblock %}
