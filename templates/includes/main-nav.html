@@ -1,8 +1,12 @@
 <!-- Adapted from Boutique Ado walkthrough project by Code Institute -->
 
 <div class="collapse navbar-collapse" id="main-nav">
-    <ul class="navbar-nav w-auto mx-auto">
-
+    <ul class="navbar-nav w-auto mx-auto align-items-start">
+        <li class="nav-item d-block d-md-none">
+            <a class="logo-font btn fw-bold nav-link text-black me-5" href="{% url 'home' %}" id="home-link">
+                Home
+            </a>
+        </li>
         <!-- All Products -->
         <li class="nav-item dropdown">
             <a class="logo-font btn fw-bold nav-link text-black me-5" href="#" id="all-products-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
