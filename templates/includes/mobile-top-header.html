@@ -15,7 +15,7 @@
                     <div class="input-group-append">
                         <button class="form-control form-control btn btn-black border border-black rounded-0" type="submit">
                             <span class="icon">
-                                <i class="fas fa-search"></i>
+                                <i class="top-nav-icon fas fa-search"></i>
                             </span>
                         </button>
                     </div>
@@ -26,7 +26,7 @@
     <li class="list-inline-item dropdown">
         <a class="text-black nav-link d-block d-lg-none" href="#" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="text-center">
-                <div><i class="fas fa-user fa-lg"></i></div>
+                <div><i class="top-nav-icon fas fa-user fa-lg"></i></div>
                 <p class="my-0">My Account</p>
             </div>
         </a>
@@ -46,7 +46,7 @@
     <li class="list-inline-item">
         <a href="{% url 'view_cart' %}" class="{% if grand_total %}shopping-cart-highlight fw-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none">
             <div class="text-center">
-                <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                <div><i class="top-nav-icon fas fa-shopping-bag fa-lg"></i></div>
                 <p class="my-0">
                     {% if grand_total %}
                     £{{ grand_total|floatformat:2 }}

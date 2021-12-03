@@ -84,6 +84,7 @@ input[name='query']::placeholder {
 
 .custom-toast {
     overflow: visible;
+    max-width: 90vw;
 }
 
 .toast-capper {
@@ -244,6 +245,7 @@ li.nav-item > a.nav-link.show {
 .allauth-form-inner-content input {
     border-color: #14161A;
     border-radius: 0;
+    margin-bottom: 16px;
 }
 
 .allauth-form-inner-content label:not([for='id_remember']) {
@@ -332,11 +334,11 @@ li.nav-item > a.nav-link.show {
         font-size: 2rem;
     }
 
-    .nav-link {
-        padding: 0.15rem;
+    li.list-inline-item > a.nav-link {
+        padding: 0.15rem 0.15rem;
     }
 
-    .nav-link i.fa-lg {
+    .top-nav-icon {
         font-size: 1rem;
     }
 
@@ -345,24 +347,23 @@ li.nav-item > a.nav-link.show {
         font-size: 1rem;
     }
 
-    #delivery-banner h4 {
+    #delivery-banner-heading {
         font-size: .9rem;
     }
 
-    .btn.btn-outline-black.rounded-0,
-    .btn.btn-blue.rounded-0,
-    .btn.btn-black.rounded-0 {
+    .keep-shopping-btn {
         padding: .375rem .375rem;
+        font-size: .75rem
     }
 
-    .btn.btn-outline-black.rounded-0.btn-lg,
-    .btn.btn-blue.rounded-0.btn-lg,
-    .btn.btn-black.rounded-0.btn-lg {
-        padding: .375rem .375rem;
+    .add-to-cart-btn {
+        padding: 0.6rem 0.75rem;
         font-size: .75rem;
     }
 
-    .increment-qty, .decrement-qty {
-        padding: 0.25rem .5rem !important;
+    .btn.btn-blue.btn-lg,
+    .btn.btn-outline-black.btn-lg {
+        padding: .375rem .375rem;
+        font-size: .75rem;
     }
 }
