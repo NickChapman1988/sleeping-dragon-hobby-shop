@@ -60,7 +60,7 @@
                 <div class="row">
                     {% for product in products %}
                         <div class="col-sm-12 offset-sm-3 col-md-6 offset-md-0 col-lg-4 col-xl-3">
-                            <div class="card bg-smoke h-100 border-0">
+                            <div class="card text-center bg-smoke h-100 border-0">
                                 {% if product.image %}
                                     <a href="{% url 'product_detail' product.id %}">
                                         <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top img-fluid border-black product-image">
@@ -73,21 +73,21 @@
                                 <div class="card-body pb-0">
                                     <p class="mb-0">{{ product.name }}</p>
                                 </div>
-                                <div class="card-footer bg-smoke pt-0 border-0 text-left">
+                                <div class="card-footer bg-smoke pt-0 border-0">
                                     <div class="row">
-                                        <div class="col">
-                                            <p class="lead mb-0 text-left fw-bold">£{{ product.price }}</p>
+                                        <div class="col text-start">
+                                            <p class="lead mb-0  fw-bold">£{{ product.price }}</p>
                                             {% if product.rating %}
                                                 <small class="text-muted"><i class="fas fa-star me-1"></i>{{ product.rating }}/5</small>
                                             {% else %}
                                                 <small class="text-muted">No Rating</small>
                                             {% endif %}
                                         </div>
-                                        <div class="col">    
+                                        <div class="col text-end">    
                                             {% if product.stock > 0 %}
-                                            <p class="mb-0 text-left fw-bold highlight-text">{{ product.stock }} in Stock</p>
+                                            <p class="mb-0 fw-bold highlight-text">{{ product.stock }} in Stock</p>
                                             {% else %}
-                                            <p class="mb-0 text-left fw-bold highlight-text">Out of Stock</p>
+                                            <p class="mb-0 fw-bold highlight-text">Out of Stock</p>
                                             {% endif %}
                                             {% if product.category %}
                                             <p class="small mt-1 mb-0">
