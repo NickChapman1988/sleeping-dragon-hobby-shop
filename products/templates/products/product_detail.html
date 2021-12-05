@@ -68,25 +68,24 @@
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <button class="decrement-qty btn btn-black rounded-0" 
-                                            data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
-                                            <span class="icon">
-                                                <i class="fas fa-minus"></i>
-                                            </span>
-                                        </button>
+                                                data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
+                                                <span class="icon">
+                                                    <i class="fas fa-minus"></i>
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="{{ product.stock }}" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                        <div class="input-group-append">
+                                            <button class="increment-qty btn btn-black rounded-0"
+                                                data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
+                                                <span class="icon">
+                                                    <i class="fas fa-plus"></i>
+                                                </span>
+                                            </button>
+                                        </div>
                                     </div>
-                                    <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="{{ product.stock }}" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
-                                    <div class="input-group-append">
-                                        <button class="increment-qty btn btn-black rounded-0"
-                                        data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
-                                        <span class="icon">
-                                            <i class="fas fa-plus"></i>
-                                        </span>
-                                    </button>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-
                             <div class="col-12">
                                 <a href="{% url 'products' %}" class="btn btn-blue mt-5">
                                     <span class="icon">
@@ -99,6 +98,42 @@
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
                     </form>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Customer Reviews -->
+                <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+                    <hr>
+                    <div class="review-container">
+                        <h4 class="logo-font text-center">Customer Reviews</h4>
+                        {% if not user_review %}
+                        <!-- Add Review Button -->
+                            <a href="" class="btn btn-blue mb-2">
+                                <span class="icon">
+                                    <i class="fas fa-plus"></i>
+                                </span>
+                                <span class="text-uppercase keep-shopping-btn">Add Review</span>
+                            </a>
+                        {% endif %}
+                        <div class="row">
+                            {% if product_reviews %}
+                                {% for product_review in product_reviews %}
+                                    <div class="col-12 py-1">
+                                        <span><small class="fw-bold">{{ product_review.user.username }}</small></span>
+                                        <span><small class="text-muted"><i class="fas fa-star me-1"></i>{{ product_review.rating }} / 5</small></span>
+                                    </div>
+                                    <div class="px-1">
+                                        {{ product_review.content }}
+                                    </div>
+                                {% endfor %}
+                            {% else %}
+                                <!-- If no product reviews -->
+                                <div class="col-12 text-center">
+                                    <small>There are no reviews for this product yet</small>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

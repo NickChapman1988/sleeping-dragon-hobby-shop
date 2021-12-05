@@ -34,7 +34,7 @@ class Product(models.Model):
     height = models.DecimalField(max_digits=6, decimal_places=1)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     rating = models.DecimalField(
-        max_digits=6, decimal_places=2, null=True, blank=True)
+        max_digits=3, decimal_places=2, null=True, blank=True)
     image_url = models.URLField(max_length=1024, blank=True)
     image = models.ImageField(null=True, blank=True)
 
@@ -46,7 +46,7 @@ class Review(models.Model):
     product = models.ForeignKey('Product', null=True, blank=True, related_name='reviews', on_delete=models.SET_NULL)
     content = models.TextField(null=False, blank=False)
     rating = models.IntegerField(null=False, blank=False, validators=[MinValueValidator(0), MaxValueValidator(5)])
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True )
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

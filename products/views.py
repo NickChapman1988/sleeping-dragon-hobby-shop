@@ -5,8 +5,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
-from .models import Product, Category
 from checkout.models import Order
+from .models import Product, Category, Review
 from .forms import ProductForm, CategoryForm
 
 
@@ -72,11 +72,23 @@ def all_products(request):
 
 def product_detail(request, product_id):
     """ A view to show individual product details """
-
+    # Get individual product
     product = get_object_or_404(Product, id=product_id)
+
+    # Get latest product reviews
+    product_reviews = Review.objects.filter(
+        product=product).order_by("date")[:10]
+    user_review = None
+
+    # If user is authenticated, get user review if available
+    if request.user.is_authenticated:
+        user_review = Review.objects.filter(
+            product=product, user=request.user).first()
 
     context = {
         'product': product,
+        'product_reviews': product_reviews,
+        'user_review': user_review,
     }
 
     return render(request, 'products/product_detail.html', context)
@@ -85,6 +97,7 @@ def product_detail(request, product_id):
 @login_required
 def product_management(request):
     """ A view for admin users to manage products and categories from the storefront """
+    # Prevent all except superusers accessing product management
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that')
         return redirect(reverse('home'))
@@ -93,6 +106,7 @@ def product_management(request):
     categories = Category.objects.all()
     latest_orders = Order.objects.all()[:5]
 
+    # Sort categories alphabetically
     categories = categories.order_by('name')
 
     context = {
@@ -107,6 +121,7 @@ def product_management(request):
 @login_required
 def add_product(request):
     """ Add a product to the store """
+    # Prevent all except superusers accessing product management
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that')
         return redirect(reverse('home'))
@@ -133,6 +148,7 @@ def add_product(request):
 @login_required
 def edit_product(request, product_id):
     """ Edit a product in the store """
+    # Prevent all except superusers accessing product management
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that')
         return redirect(reverse('home'))
@@ -161,12 +177,16 @@ def edit_product(request, product_id):
 
 @login_required
 def delete_product(request, product_id):
+    # Prevent all except superusers accessing product management
     """ Delete a product in the store """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that')
         return redirect(reverse('home'))
 
     product = get_object_or_404(Product, id=product_id)
+    reviews = Review.objects.filter(product=product)
+    if reviews:
+        reviews.delete()
     product.delete()
     messages.success(request, 'Product deleted')
     return redirect(reverse('products'))
