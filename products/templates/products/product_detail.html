@@ -109,7 +109,7 @@
                         {% if request.user.is_authenticated %}
                             {% if not user_review %}
                             <!-- Add Review Button -->
-                                <a href="" class="btn btn-blue mb-2">
+                                <a href="{% url 'review_product' product.id %}" class="btn btn-blue mb-2">
                                     <span class="icon">
                                         <i class="fas fa-plus"></i>
                                     </span>
@@ -127,6 +127,12 @@
                                     <div class="px-1">
                                         {{ product_review.content }}
                                     </div>
+                                    {% if request.user.username == product_review.user.username %}
+                                        <!-- Review Link -->
+                                        <small class="ms-3">
+                                            <a href="{% url 'review_product' product.id %}" class="text-info">Edit</a>    
+                                        </small>   
+                                    {% endif %}
                                 {% endfor %}
                             {% else %}
                                 <!-- If no product reviews -->
