@@ -329,7 +329,7 @@ def review_product(request, product_id):
         if product_review:
             review_form = ReviewForm(instance=product_review)
         else:
-            review_form = ReviewForm
+            review_form = ReviewForm()
 
     template = 'products/review_product.html'
     context = {

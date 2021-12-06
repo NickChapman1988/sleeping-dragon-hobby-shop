@@ -41,10 +41,16 @@ class ReviewForm(forms.ModelForm):
 
     class Meta:
         model = Review
-        fields = '__all__'
+        fields = ('content', 'rating')
+        labels = {
+            'content': 'Review',
+            'rating': 'Rating',
+        }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['content'].widget.attrs['autofocus'] = True
+        self.fields['rating'].widget.attrs['min'] = 0
+        self.fields['rating'].widget.attrs['max'] = 5
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-0 review-input'

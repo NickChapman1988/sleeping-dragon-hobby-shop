@@ -106,14 +106,16 @@
                     <hr>
                     <div class="review-container">
                         <h4 class="logo-font text-center">Customer Reviews</h4>
-                        {% if not user_review %}
-                        <!-- Add Review Button -->
-                            <a href="" class="btn btn-blue mb-2">
-                                <span class="icon">
-                                    <i class="fas fa-plus"></i>
-                                </span>
-                                <span class="text-uppercase keep-shopping-btn">Add Review</span>
-                            </a>
+                        {% if request.user.is_authenticated %}
+                            {% if not user_review %}
+                            <!-- Add Review Button -->
+                                <a href="" class="btn btn-blue mb-2">
+                                    <span class="icon">
+                                        <i class="fas fa-plus"></i>
+                                    </span>
+                                    <span class="text-uppercase keep-shopping-btn">Add Review</span>
+                                </a>
+                            {% endif %}
                         {% endif %}
                         <div class="row">
                             {% if product_reviews %}

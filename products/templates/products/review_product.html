@@ -22,9 +22,10 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <form action="{% url 'review_product' product.id %}" method="post" class="form mb-2">
+                <span class="fw-bold mb-3">You are currently reviewing {{ product.name }}</span>
+                <form action="{% url 'review_product' product.id %}" method="POST" class="form mb-2">
                     {% csrf_token %}
-                    {{ form|crispy }}
+                    {{ review_form | crispy }}
                     <div class="text-end">
                         <a href="{% url 'product_detail' product.id %}" class="btn btn-blue rounded-0">Cancel</a>
                         <button type="submit" class="btn btn-outline-black rounded-0">Add Review</button>
