@@ -282,7 +282,7 @@ def review_product(request, product_id):
 
         # Get existing user review
         product_review = Review.objects.filter(
-            product=product, user=request.user)
+            product=product, user=request.user).first()
 
         # If user review exists
         if product_review:
@@ -311,7 +311,7 @@ def review_product(request, product_id):
                 review_form.save()
                 messages.success(
                     request, f'Review successfully updated for {product.name}')
-                return redirect(reverse('product_detail', args=[product.id]))
+            return redirect(reverse('product_detail', args=[product.id]))
         else:
             # If form not valid
             if new_review:
@@ -322,14 +322,15 @@ def review_product(request, product_id):
                 messages.error(
                     request, 'Failed to update review. \
                     Please ensure the form is valid')
+
     else:
         product_review = Review.objects.filter(
-            product=product, user=request.user)
+            product=product, user=request.user).first()
 
         if product_review:
             review_form = ReviewForm(instance=product_review)
         else:
-            review_form = ReviewForm()
+            review_form = ReviewForm
 
     template = 'products/review_product.html'
     context = {

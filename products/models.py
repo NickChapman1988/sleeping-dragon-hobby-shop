@@ -43,10 +43,15 @@ class Product(models.Model):
 
 
 class Review(models.Model):
-    product = models.ForeignKey('Product', null=True, blank=True, related_name='reviews', on_delete=models.SET_NULL)
+    product = models.ForeignKey(
+        'Product', null=True, blank=True,
+        related_name='reviews', on_delete=models.SET_NULL)
     content = models.TextField(null=False, blank=False)
-    rating = models.IntegerField(null=False, blank=False, validators=[MinValueValidator(0), MaxValueValidator(5)])
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    rating = models.IntegerField(
+        null=False, blank=False,
+        validators=[MinValueValidator(0), MaxValueValidator(5)])
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
