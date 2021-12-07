@@ -79,6 +79,7 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, id=product_id)
 
     # Get latest product reviews
+    product_reviews = Review.objects.filter(product=product)
     user_review = None
 
     # If user is authenticated, get user review if available
