@@ -227,8 +227,6 @@ Sleeping Dragon Hobby Shop is an e-commerce store for an existing company sellin
     </tr>
 </table>
 
-![Image](user-stories.png)
-
 
 ## Structure
 
@@ -265,12 +263,39 @@ Sleeping Dragon Hobby Shop is an e-commerce store for an existing company sellin
 ## Technologies Used
 
 #### Languages:
+* [HTML](https://en.wikipedia.org/wiki/HTML)
+* [CSS](https://en.wikipedia.org/wiki/CSS)
+* [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+* [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 
 #### Libraries & Frameworks:
+* [Django](https://en.wikipedia.org/wiki/Django_(web_framework))
+* [Balsamiq](https://balsamiq.com/) - Used for the creation of wireframes.
+* [FontAwesome](https://fontawesome.com/) - Used for all site icons.
+* [dbdiagram.io](https://dbdiagram.io/home) - Used to map out data structure. 
+* [JQuery](https://jquery.com) - The project uses JQuery to simplify DOM manipulation.
+* [GoogleFonts](https://fonts.google.com/) - 'Syncopate' and 'Raleway' fonts.
+* [Bootstrap v5.0](https://getbootstrap.com/) - A mobile-first responsive library used to construct various parts of the project
+* [Popper](https://popper.js.org/) - Included as a requirement of Bootstrap.
+* [django-allauth](https://django-allauth.readthedocs.io/en/latest/index.html) - Used for user authentication
 
 #### Version Control:
+* [Github](https://github.com/) - Used to store the code 
+* [Gitpod](https://gitpod.io/) - Used as the primary version control IDE for development to further push and commit code to GitHub.
+* [Heroku](https://www.heroku.com/home) - Used to deploy the live site
 
 #### Other:
+* [Code Institute Course Content](https://courses.codeinstitute.net/) - Primary source of learning code.
+* [Stripe](https://stripe.com/docs/api) - fully integrated payments platform.
+* [Stack Overflow](https://stackoverflow.com/) - Used for general troubleshooting and examples.
+* [W3Schools](https://www.w3schools.com/) - Used for examples and tutorials.
+* [ChromeDevTools](https://developers.google.com/web/tools/chrome-devtools) - Used frequently to detect any issues/bugs or layout differences.
+* [Coolors](https://coolors.co/) - Used to help define the site colour scheme.
+* [ami.responsive](http://ami.responsivedesign.is/) - Used to generate multi-device mockup image.
+* [ResizeImage](https://resizeimage.net/) - Used to resize images to web-optimised sizes
+* [Unsplash](https://unsplash.com) - Used to find suitable background and images throughout the project.
+* [Amazon Web Services](https://aws.amazon.com/?nc2=h_lg) - Used for storage of static and media files for deployed site
+* [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) - enables enhanced rendering of Django forms including integration with **Bootstrap**.
 
 
 ---
@@ -296,7 +321,7 @@ The [Gitpod Browser Extension](https://www.Gitpod.io/docs/browser-extension/) is
 [template](https://github.com/Code-Institute-Org/gitpod-full-template).
 * Click on the green "gitpod" button to open [Gitpod](https://gitpod.io/), a cloud-based version control software or IDE, which was used to write all code for this project.
 * It was then pushed or saved in the terminal to Github where it is stored in a [repository](https://github.com/NickChapman1988/sleeping-dragon-hobby-shop)
-</summary>
+</details>
 
 <details>
 <summary>Heroku</summary>
