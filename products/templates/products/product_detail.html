@@ -128,9 +128,13 @@
                                         {{ product_review.content }}
                                     </div>
                                     {% if request.user.username == product_review.user.username %}
-                                        <!-- Review Link -->
+                                        <!-- Edit Review -->
                                         <small class="ms-3">
-                                            <a href="{% url 'review_product' product.id %}" class="text-info">Edit</a>    
+                                            <a href="{% url 'review_product' product.id %}" class="text-info">Edit</a>
+                                            <!-- Delete Review -->
+                                            {% if request.user.is_superuser %}
+                                                <a href="{% url 'delete_review' product.id product_review.user.id %}" class="text-danger">Delete</a>    
+                                            {% endif %}
                                         </small>   
                                     {% endif %}
                                 {% endfor %}

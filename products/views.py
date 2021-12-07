@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
+from django.contrib.auth.models import User
 from checkout.models import Order
 from .models import Product, Category, Review
 from .forms import ProductForm, CategoryForm, ReviewForm
@@ -78,8 +79,6 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, id=product_id)
 
     # Get latest product reviews
-    product_reviews = Review.objects.filter(
-        product=product).order_by("date")[:10]
     user_review = None
 
     # If user is authenticated, get user review if available
@@ -340,3 +339,20 @@ def review_product(request, product_id):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def delete_review(request, product_id, user_id):
+    """ Delete product review """
+    product = get_object_or_404(Product, id=product_id)
+    user = get_object_or_404(User, id=user_id)
+    review = get_object_or_404(Review, product=product, user=user)
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that')
+        return redirect(reverse('product_detail', args=[product.id]))
+
+    review.delete()
+    messages.success(
+        request, f'Review of {product.name} by {user.username} deleted')
+    return redirect(reverse('product_detail', args=[product.id]))
