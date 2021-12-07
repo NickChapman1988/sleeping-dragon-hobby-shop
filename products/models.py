@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.db.models import Avg
 
 
 # Create your models here.
@@ -40,6 +41,13 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+    def calculate_rating(self):
+        """ Calculate product rating from reviews """
+        self.rating = self.reviews.all().aggregate(Avg(
+            'rating'))
+        self.save()
+        return self.rating
 
 
 class Review(models.Model):
