@@ -307,14 +307,20 @@ li.nav-item > a.nav-link.show {
 /*-------------------------- Media Queries */
 
 /* Increase container width on xl screens */
-@media (min-width: 1200px) {
+@media only screen and (min-width: 1200px) {
     .container {
         max-width: 80%;
     }
 }
 
+@media only screen and (min-width: 992px) and (max-width: 1039px) {
+    .main-logo-link h2 {
+        font-size: calc(1.2rem + .9vw);
+    }
+}
+
 /* fixed top navbar only on large and up */
-@media (min-width: 992px) {
+@media only screen and (min-width: 992px)  {
     .fixed-top-desktop-only {
         position: fixed;
         top: 0;
@@ -325,9 +331,13 @@ li.nav-item > a.nav-link.show {
 }
 
 /* pad the top when navbar is collapsed on mobile */
-@media (max-width: 991px) {
+@media only screen and (max-width: 991px) {
     body {
         height: calc(100vh - 195px);
+    }
+
+    .header-container {
+        padding-top: 112px;
     }
 
     .display-4.logo-font.text-black {
