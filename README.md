@@ -2,7 +2,7 @@
 
 ![Image]
 
-### [See live site.]()
+### [See live site.](https://sleeping-dragon-hobby-shop.herokuapp.com/)
 
 ## Table of Contents
 
@@ -279,14 +279,106 @@ Sleeping Dragon Hobby Shop is an e-commerce store for an existing company sellin
 
 
 ## Deployment
+The project has been developed using [Gitpod](https://www.Gitpod.io/) and [GitHub](https://github.com/). 
+The project was regularly committed to [GitHub](https://github.com/) during the initial development phase.  
+The website resides as a repository in [GitHub](https://github.com/), and has been been deployed 
+using [Heroku](https://dashboard.heroku.com/).  
+Static files are stored using [Amazon AWS](https://aws.amazon.com/) in an **Amazon Web Services S3 Bucket**.
 
-### GitHub
+In order to make a *Fork* or *Clone* of the project, a [GitHub](https://www.Gitpod.io/) account is required. 
+The [Gitpod Browser Extension](https://www.Gitpod.io/docs/browser-extension/) is also recommended.  
 
-### Heroku
+<details>
+<summary>GitHub</summary>
 
-### Forking the GitHub Repository
+* Go to [GitHub](https://github.com/) and sign in, or sign up for an account.
+* Once a Github account was created, I opened a new repository by clicking the green button "new". To create this project, I used the Code Institute's student 
+[template](https://github.com/Code-Institute-Org/gitpod-full-template).
+* Click on the green "gitpod" button to open [Gitpod](https://gitpod.io/), a cloud-based version control software or IDE, which was used to write all code for this project.
+* It was then pushed or saved in the terminal to Github where it is stored in a [repository](https://github.com/NickChapman1988/sleeping-dragon-hobby-shop)
+</summary>
 
-### Making a local Clone
+<details>
+<summary>Heroku</summary>
+The project was deployed to Heroku using the following steps:
+
+* IF NOT USING FIXTURE FILES - to dump the data from your mysql development database to a json file, use the following command at the terminal *note - manage.py must be connected to your local mysql development database*:
+`python3 manage.py dumpdata --exclude auth.permission --exclude contenttypes > db.json`
+* Log in to **Heroku**, and create a new **App** by clicking the *New* button in the top right of 
+your *Dashboard* and selecting *Create new app*. Give the new **App** a name (one that closely matches your Django appname) and set the region to your closest geographical region, 
+then click *Create app*.
+* Provision a new **POSTGRES** database from the *Resources* tab.
+* Confirm that the **App** is connected to the correct **GitHub** repository.
+* Install `dj_database_url` and `psycopg2-binary` using the `pip3 install` command
+* Use the `pip3 freeze > requirements.txt` terminal command to to create a `requirements.txt` file, 
+which lists all the **Python** dependencies.
+* Import dj_database_url in settings.py.
+* In settings.py, connect the **POSTGRES** database by setting `DATABASES` to match the `DATABASE_URL` from the Heroku Config Variables (under Settings):
+```
+    DATABASES = {
+        'default': dj_database_url.parse(database_url)
+    }
+```
+
+* Run `python3 manage.py showmigrations` at the terminal to show migrations to be applied to the new POSTGRES database.
+* Run `python3 manage.py migrate --plan` at the terminal to check the migrations.
+* Run `python3 manage.py migrate` at the terminal to apply the migrations to the new POSTGRES database.
+* Note - if you encounter `error: django.db.utils.OperationalError: FATAL:  role "xxxxxxxxxxx" during configuration of POSTGRESQL`, run `unset PGHOSTADDR` at the terminal.
+* Run `python3 manage.py loaddata db.json` at the terminal to load the data from the local json created earlier 
+* If using fixture files, run `python3 manage.py loaddata fixturefilename` for each fixture file, making sure to load in the correct order (i.e load any fixtures with dependencies *after* loading the files they depend on)
+* Install `gunicorn` and re-run `pip freeze > requirements.txt` at the terminal.
+* Create a `Procfile`, declaring the process type in the root of the project. 
+* The `Procfile` should have only one line that reads `web: gunicorn appname.wsgi:application`, with no empty white space or lines, where `appname` is the application name.
+* Login to **Heroku** at the terminal using `heroku login -i`
+* Run the command `heroku config:set DISABLE_COLLECTSTATIC=1 --app appname` at the terminal, where `appname` is the Heroku application name.
+* Add `ALLOWED_HOSTS = ['appname.herokuapp.com', 'localhost']` to `settings.py` where where `appname` is the Heroku application name.
+* Add, commit and push the newly created `requirements.txt` and `Procfile` files to the **GitHub**
+repository using the `git add`, `git commit` and `git push` commands.
+* Set the git remote using `heroku git:remote -a appname`, where `appname` is the application name.
+* Deploy the app to heroku using `git push heroku branchname`, where `branchname` is the github branch name.
+* In the *Dashboard* for the new application, click on *Settings* menu > *Reveal Config Vars*.
+* Generate a Django secret key using [miniwebtool.com](https://miniwebtool.com/django-secret-key-generator/) and add it to the environment variables.
+* In the Heroku Config Variables, add DISABLE_COLLECTSTATIC and set the value to 1, and add DJANGO_SECRET_KEY setting the value to the generated secret key.
+* From your **App** *Dashboard*, click on the *Deploy* menu > *Deployment method* section and select *GitHub*.
+* Search for your **GitHub** repository then click *Connect* to connect.
+* Confirm that the **App** is connected to the correct **GitHub** repository.
+* Enable **Automatic Deploys** from the correct **GitHub** branch.
+* Update, commit and push the code to **GitHub** and **Heroku** using the 
+`git add`, `git commit` and `git push` commands.
+* **Heroku** will receive the code from **GitHub** and build the **App** with the required packages and dependencies.
+* Once complete, you should see the message *Your app was successfully deployed*.
+* Confirm that the application is automatically deploying to **Heroku** by checking the *Build Log* in the *Activity* tab.
+* **Heroku** is now successfully connected to **GitHub** and any changes made in the **GitHub** repository 
+will be automatically pushed to **Heroku**.
+</details>
+
+<details>
+<summary>Forking the GitHub Repository</summary>
+Forking the GitHub repository creates a copy of the original repository on your own GitHub account to view and/or make changes without affecting the original repository; use the following steps to fork:
+
+1. Log in to GitHub and locate the GitHub [repository](https://github.com/NickChapman1988/game-shelf)
+2. At the top of the repository above the "Settings" button on the menu, locate the "Fork" button.
+3. You should now have a copy of the repository in your own GitHub account.
+
+For further information on *Forking* a [GitHub](https://github.com/) repository, 
+see the [GitHub Documentation](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo).
+</details>
+
+<details>
+<summary>Making a local Clone</summary>
+* Go to the [Project Code Repository Location](https://github.com/NickChapman1988/sleeping-dragon-hobby-shop) on [GitHub](https://github.com/).
+* Select the *Code* dropdown and choose *GitHub CLI* under *Clone*. This will give you a *URL* that may be copied into the clipboard. 
+* Open the Git Bash command line interface in [Gitpod](https://www.Gitpod.io/).
+* Change the current working directory to the location where you would like the cloned directory to reside.
+* Type `git clone`, and then paste the *URL* copied earlier, eg:  
+`$ git clone https://github.com/NickChapman1988/sleeping-dragon-hobby-shop`
+* Press Enter to create the local clone.
+* Any required **Python** dependencies should be installed locally using `$ pip install -r requirements.txt`.
+
+For further information on *Cloning* a [GitHub](https://github.com/) repository, see the 
+[GitHub Documentation](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
+</details>
+
 
 ## Credits
 
