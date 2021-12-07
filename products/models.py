@@ -45,7 +45,7 @@ class Product(models.Model):
     def calculate_rating(self):
         """ Calculate product rating from reviews """
         self.rating = self.reviews.all().aggregate(Avg(
-            'rating'))
+            'rating'))['rating__avg']
         self.save()
         return self.rating
 
