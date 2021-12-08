@@ -61,6 +61,7 @@ def cart_contents(request):
         'discount': discount,
         'discount_amount': discount_amount,
         'discount_savings': discount_savings,
+        'cart_total': cart_total,
     }
 
     return context

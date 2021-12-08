@@ -32,7 +32,7 @@
                     <div class="col-7 offset-2">
                         <p class="mb-1 mt-0 small text-muted">Item</p>
                     </div>
-                    <div class="col-3 text-right">
+                    <div class="col-3 text-end">
                         <p class="mb-1 mt-0 small text-muted">Subtotal</p>
                     </div>
                 </div>
@@ -51,20 +51,34 @@
                             <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                             <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                         </div>
-                        <div class="col-3 text-right">
+                        <div class="col-3 text-end">
                             <p class="my-0 small text-muted">£{{ item.product.price | calc_subtotal:item.quantity }}</p>
                         </div>
                     </div>
                 {% endfor %}
                 <hr class="my-1">
-                <div class="row text-black text-right">
+                <div class="row text-black text-end">
+                    {% if not discount == None %}
+                        <div class="mb-2">
+                            <p class="text-black">Current Discount Code: <span class="fw-bold">{{ discount }}</span></p>
+                            <p class="text-blue fw-bold">Savings: <span>£{{ discount_savings|floatformat:2 }} - {{ discount_amount }}%</span> off!</p>
+                        </div>
+                    {% endif %}
                     <div class="col-7 offset-2">
                         <p class="my-0">Order Total:</p>
+			{% if not discount == None %}
+				<p class="my-0">Discount:</p>
+			{% endif %}
                         <p class="my-0">Delivery:</p>
                         <p class="my-0">Grand Total:</p>
                     </div>
                     <div class="col-3">
-                        <p class="my-0">£{{ total | floatformat:2 }}</p>
+			{% if not discount == None %}
+				<p class="my-0">£{{ cart_total | floatformat:2 }}</p>
+				<p class="my-0">- £{{ discount_savings | floatformat:2 }}</p>
+			{% else %}
+				<p class="my-0">£{{ total | floatformat:2 }}</p>
+			{% endif %}	
                         <p class="my-0">£{{ delivery | floatformat:2 }}</p>
                         <p class="my-0"><strong>£{{ grand_total | floatformat:2 }}</strong></p>
                     </div>
@@ -109,7 +123,7 @@
                         <input type="hidden" name="client_secret" value="{{ client_secret }}">
                     </fieldset>
 
-                    <div class="submit-button text-right mt-5 mb-2">
+                    <div class="submit-button text-start mt-3 mb-2">
                         <p class="small text-danger mb-2">
                             <span class="icon">
                                 <i class="fas fa-exclamation-circle"></i>
