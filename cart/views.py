@@ -1,15 +1,42 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
+import datetime
+
+from django.shortcuts import (render, redirect, reverse,
+                              HttpResponse, get_object_or_404)
 from django.contrib import messages
+from django.views.decorators.http import require_POST
 
 from products.models import Product
-
-# Create your views here.
+from .models import Discount
 
 
 def view_cart(request):
     """ A view that renders the cart contents page """
 
     return render(request, 'cart/cart.html')
+
+
+@require_POST
+def discount_apply(request):
+    now = datetime.datetime.now()
+    code = request.POST.get('discount-code')
+
+    if not code:
+        messages.error(request, "You didn't enter a coupon code!")
+        return redirect(reverse('view_cart'))
+
+    try:
+        discount = Discount.objects.get(code=code,
+                                        valid_from__lte=now,
+                                        valid_to__gte=now,
+                                        active=True)
+        request.session['discount_id'] = discount.id
+        messages.success(request, f'Discount code { code } applied')
+    except Discount.DoesNotExist:
+        request.session['discount_id'] = None
+        messages.error(request, f'Discount code {code} is not valid')
+        return redirect('view_cart')
+    else:
+        return redirect('view_cart')
 
 
 def add_to_cart(request, item_id):
@@ -23,7 +50,8 @@ def add_to_cart(request, item_id):
 
     if item_id in list(cart.keys()):
         cart[item_id] += quantity
-        messages.success(request, f'Updated {product.name} quantity to {cart[item_id]}')
+        messages.success(
+            request, f'Updated {product.name} quantity to {cart[item_id]}')
     else:
         cart[item_id] = quantity
         messages.success(request, f'Added {product.name} to your cart')
@@ -41,7 +69,8 @@ def adjust_cart(request, item_id):
 
     if quantity > 0:
         cart[item_id] = quantity
-        messages.success(request, f'Updated {product.name} quantity to {cart[item_id]}')
+        messages.success(
+            request, f'Updated {product.name} quantity to {cart[item_id]}')
     else:
         cart.pop(item_id)
         messages.success(request, f'Removed {product.name} from your cart')

@@ -1,6 +1,7 @@
 import json
 
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import (render, redirect, reverse,
+                              get_object_or_404, HttpResponse)
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
@@ -8,6 +9,7 @@ from django.conf import settings
 import stripe
 
 from cart.contexts import cart_contents
+from cart.models import Discount
 from products.models import Product
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
@@ -53,6 +55,12 @@ def checkout(request):
         order_form = OrderForm(form_data)
         if order_form.is_valid:
             order = order_form.save(commit=False)
+            discount = request.session.get('discount_id')
+            if discount is not None:
+                code = Discount.objects.get(id=discount)
+                order.discount = code
+                request.session['discount_id'] = None
+
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.original_cart = json.dumps(cart)
@@ -68,7 +76,8 @@ def checkout(request):
                     order_line_item.save()
                 except Product.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your cart wasn't found in our database. "
+                        "One of the products in your cart \
+                        wasn't found in our database. "
                         "Please call us for assistance!")
                     )
                     order.delete()
@@ -96,7 +105,8 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        # Attempt to prefill the form with any info the user maintains in their profile
+        # Attempt to prefill the form with any
+        # info the user maintains in their profile
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)

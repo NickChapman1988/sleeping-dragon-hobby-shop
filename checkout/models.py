@@ -9,6 +9,7 @@ from django_countries.fields import CountryField
 
 from products.models import Product
 from profiles.models import UserProfile
+from cart.models import Discount
 
 
 class Order(models.Model):
@@ -26,6 +27,8 @@ class Order(models.Model):
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
     county = models.CharField(max_length=80, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
+    discount = models.ForeignKey(
+        Discount, on_delete=models.SET_NULL, null=True, blank=True)
     delivery_cost = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, default=0)
     order_total = models.DecimalField(
@@ -49,9 +52,19 @@ class Order(models.Model):
         """
         self.order_total = self.lineitems.aggregate(
             Sum('lineitem_total'))['lineitem_total__sum'] or 0
+
+        # Check whether discount was applied to order
+        if self.discount is not None:
+            discount_savings = self.order_total * (
+                self.discount.amount / Decimal('100'))
+            self.order_total = self.order_total - discount_savings
+
+        self.save()
+
         self.order_total = round(Decimal(self.order_total), 2)
         if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
-            self.delivery_cost = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
+            self.delivery_cost = (
+                self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100)
         else:
             self.delivery_cost = 0
         self.grand_total = self.order_total + self.delivery_cost
