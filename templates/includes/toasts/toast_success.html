@@ -40,7 +40,7 @@
             </p></strong>
             {% if free_delivery_delta > 0 %}
                 <p class="mb-0 p-2 bg-blue shadow-sm text-center">
-                    Spend <strong>£{{ free_delivery_delta }}</strong> more to get free UK delivery!
+                    Spend <strong>£{{ free_delivery_delta|floatformat:2 }}</strong> more to get free UK delivery!
                 </p>
             {% endif %}
             <a href="{% url 'view_cart' %}" class="btn btn-black w-100 rounded-0">
