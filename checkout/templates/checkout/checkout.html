@@ -102,10 +102,11 @@
                         {{ order_form.county | as_crispy_field }}
                         {{ order_form.postcode | as_crispy_field }}
                         {{ order_form.country | as_crispy_field }}
-                        <div class="form-check form-check-inline float-end mr-0">
+                        <div class="form-check form-check-inline mr-0">
                             {% if user.is_authenticated %}
-                                <label for="id-save-info" class="form-check-label">Save this delivery information to my profile</label>
-                                <input type="checkbox" name="save-info" id="id-save-info" class="form-check-input ms-2 me-0" checked>
+                                <label for="id-save-info" class="form-check-label small float-start">Save this delivery information to my profile 
+                                    <input type="checkbox" name="save-info" id="id-save-info" class="form-check-input ms-2 me-0 float-end" checked>
+                                </label>
                             {% else %}
                                 <label for="id-save-info" class="form-check-label">
                                     <a href="{% url 'account_signup' %}" class="text-info">Create an account</a>
@@ -117,7 +118,7 @@
                     <fieldset class="px-3">
                         <legend class="fieldset-label small text-black px-2 w-auto fw-bold">Payment</legend>
                         <!-- Stripe card element -->
-                        <div style="width: 30em" class="mb-3" id="card-element"></div>
+                        <div class="mb-3" id="card-element"></div>
                         <!-- Used to display form errors -->
                         <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
                         <input type="hidden" name="client_secret" value="{{ client_secret }}">
@@ -130,13 +131,13 @@
                             </span>
                             <span>Your card will be charged <strong>£{{ grand_total|floatformat:2 }}</strong></span>
                         </p>
-                        <a href="{% url 'view_cart' %}" class="btn btn-blue rounded-0">
+                        <a href="{% url 'view_cart' %}" class="btn btn-blue mb-2 float-end">
                             <span class="icon">
                                 <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="fw-bold">Adjust Cart</span>
                         </a>
-                        <button id="submit-button" class="btn btn-outline-black rounded-0">
+                        <button id="submit-button" class="btn btn-outline-black mb-2 float-end">
                             <span class="fw-bold">Complete Order</span>
                             <span class="icon">
                                 <i class="fas fa-lock"></i>
