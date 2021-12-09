@@ -56,19 +56,19 @@
                             <!-- Delete Modal -->
                             <div class="modal fade" id="product-delete-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="product-delete-modal-label" aria-hidden="true">
                                 <div class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header bg-smoke">
-                                      <h5 class="modal-title logo-font" id="product-delete-modal-label">Delete product?</h5>
-                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <div class="modal-content">
+                                        <div class="modal-header bg-smoke">
+                                            <h5 class="modal-title logo-font" id="product-delete-modal-label">Delete product?</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body bg-smoke">
+                                            <p>Do you really want to delete {{ product.name }}?</p>
+                                        </div>
+                                        <div class="modal-footer bg-smoke">
+                                            <button type="button" class="btn btn-blue" data-bs-dismiss="modal">Cancel</button>
+                                            <a href="{% url 'delete_product' product.id %}" class="btn btn-outline-black">Confirm Delete</a>
+                                        </div>
                                     </div>
-                                    <div class="modal-body bg-smoke">
-                                      <p>Do you really want to delete {{ product.name }}?</p>
-                                    </div>
-                                    <div class="modal-footer bg-smoke">
-                                      <button type="button" class="btn btn-blue" data-bs-dismiss="modal">Cancel</button>
-                                      <a href="{% url 'delete_product' product.id %}" class="btn btn-outline-black">Confirm Delete</a>
-                                    </div>
-                                  </div>
                                 </div>
                             </div>
                         </small>
@@ -161,7 +161,7 @@
                                                 <a href="#" class="text-danger ms-3 review-delete-btn" data-bs-toggle="modal" data-bs-target="#review-delete-modal-{{ product_review.user.id }}">
                                                     Delete
                                                 </a>  
-                                                <!-- Delete Modal -->
+                                                <!-- Delete Review Modal -->
                                                 <div class="modal fade" id="review-delete-modal-{{ product_review.user.id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="review-delete-modal-{{ product_review.user.id }}-label" aria-hidden="true">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
