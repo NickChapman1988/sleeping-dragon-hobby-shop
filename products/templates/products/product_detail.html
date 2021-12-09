@@ -43,7 +43,7 @@
                         </p>
                     {% endif %}
                     {% if product.rating %}
-                    <small class="text-muted"><i class="fas fa-star me-1"></i>{{ product.rating }} / 5</small>
+                    <small class="highlight-text"><i class="fas fa-star me-1"></i>{{ product.rating }} / 5</small>
                     {% else %}
                     <small class="text-muted">No Rating</small>
                     {% endif %}
@@ -120,23 +120,27 @@
                         <div class="row">
                             {% if product_reviews %}
                                 {% for product_review in product_reviews %}
-                                    <div class="col-12 py-1">
-                                        <span><small class="fw-bold">{{ product_review.user.username }}</small></span>
-                                        <span><small class="text-muted"><i class="fas fa-star me-1"></i>{{ product_review.rating }} / 5</small></span>
+                                <div class="card border-0 review-card bg-smoke mb-1">
+                                    <div class="card-body">
+                                        <div class="col-12 py-1">
+                                            <span><small class="fw-bold">{{ product_review.user.username|capfirst }}</small></span>
+                                            <span class="highlight-text fw-bold"><small><i class="fas fa-star me-1"></i>{{ product_review.rating }} / 5</small></span>
+                                        </div>
+                                        <div class="px-1">
+                                            {{ product_review.content }}
+                                        </div>
+                                        {% if request.user.username == product_review.user.username %}
+                                            <!-- Edit Review -->
+                                            <small class="ms-3">
+                                                <a href="{% url 'review_product' product.id %}" class="text-info me-3">Edit</a>
+                                                <!-- Delete Review -->
+                                                {% if request.user.is_superuser %}
+                                                    <a href="{% url 'delete_review' product.id product_review.user.id %}" class="text-danger ms-3">Delete</a>    
+                                                {% endif %}
+                                            </small>   
+                                        {% endif %}
                                     </div>
-                                    <div class="px-1">
-                                        {{ product_review.content }}
-                                    </div>
-                                    {% if request.user.username == product_review.user.username %}
-                                        <!-- Edit Review -->
-                                        <small class="ms-3">
-                                            <a href="{% url 'review_product' product.id %}" class="text-info me-3">Edit</a>
-                                            <!-- Delete Review -->
-                                            {% if request.user.is_superuser %}
-                                                <a href="{% url 'delete_review' product.id product_review.user.id %}" class="text-danger ms-3">Delete</a>    
-                                            {% endif %}
-                                        </small>   
-                                    {% endif %}
+                                </div>
                                 {% endfor %}
                             {% else %}
                                 <!-- If no product reviews -->
@@ -150,9 +154,19 @@
             </div>
         </div>
     </div>
+    <div class="btt-button border">
+        <a class="btt-link d-flex h-100">
+            <i class="fas fa-arrow-up mx-auto my-auto"></i>
+        </a>	
+    </div>
 {% endblock %}
 
 {% block postloadjs %}
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
+<script type="text/javascript">
+    $('.btt-link').click(function(e) {
+        window.scrollTo(0,0)
+    })
+</script>
 {% endblock %}
