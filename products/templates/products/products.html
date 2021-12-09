@@ -78,7 +78,7 @@
                                         <div class="col text-start">
                                             <p class="lead mb-0  fw-bold">£{{ product.price }}</p>
                                             {% if product.rating %}
-                                                <small class="text-muted"><i class="fas fa-star me-1"></i>{{ product.rating }}/5</small>
+                                                <small class="highlight-text"><i class="fas fa-star me-1"></i>{{ product.rating }}/5</small>
                                             {% else %}
                                                 <small class="text-muted">No Rating</small>
                                             {% endif %}
@@ -112,22 +112,22 @@
                             </div>
                         </div>
                         {% if forloop.counter|divisibleby:1 %}
-                        <div class="col-12 d-sm-none mb-5">
+                        <div class="col-12 d-sm-none mb-2">
                             <hr>
                         </div>
                         {% endif %}
                         {% if forloop.counter|divisibleby:2 %}
-                        <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+                        <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-2">
                             <hr>
                         </div>
                         {% endif %}
                         {% if forloop.counter|divisibleby:3 %}
-                        <div class="col-12 d-none d-lg-block d-xl-none mb-5">
+                        <div class="col-12 d-none d-lg-block d-xl-none mb-2">
                             <hr>
                         </div>
                         {% endif %}
                         {% if forloop.counter|divisibleby:4 %}
-                        <div class="col-12 d-none d-xl-block mb-5">
+                        <div class="col-12 d-none d-xl-block mb-2">
                             <hr>
                         </div>
                         {% endif %}
