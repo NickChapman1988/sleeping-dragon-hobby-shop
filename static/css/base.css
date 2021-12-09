@@ -41,6 +41,7 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
+/* Cover bg image on all except home page */
 .overlay {
     height: 100%;
     width: 100%;
@@ -51,12 +52,9 @@ body {
     z-index: -1;
 }
 
-.highlight-text {
-    color: #1E7BC1;
-}
-
+.highlight-text,
 .shopping-cart-highlight {
-    color: #228CBD;
+    color: #1E7BC1;
 }
 
 /* Override default BS margin rule */
@@ -103,6 +101,10 @@ input[name='query']::placeholder {
     right: 36px;
 }
 
+.arrow-success {
+    border-bottom-color: #228CBD !important;
+}
+
 /* Convenience classes - colors copied from Bootstrap */
 .arrow-primary {
     border-bottom-color: #007bff !important;
@@ -110,10 +112,6 @@ input[name='query']::placeholder {
 
 .arrow-secondary {
     border-bottom-color: #6c757d !important;
-}
-
-.arrow-success {
-    border-bottom-color: #228CBD !important;
 }
 
 .arrow-danger {
