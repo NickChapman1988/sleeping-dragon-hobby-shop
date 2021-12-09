@@ -113,7 +113,7 @@ input[name='query']::placeholder {
 }
 
 .arrow-success {
-    border-bottom-color: #28a745 !important;
+    border-bottom-color: #228CBD !important;
 }
 
 .arrow-danger {
@@ -189,6 +189,7 @@ li.nav-item > a.nav-link.show {
     color: #fff;
 }
 
+/* Back-to-Top button */
 .btt-button {
     height: 42px;
     width: 42px;
@@ -213,22 +214,26 @@ li.nav-item > a.nav-link.show {
 
 /*-------------------------- Product Images */
 
+/* Restrict image size on product page */
 .product-image {
     max-width: 280px;
     max-height: 280px;
 }
 
+/* Increase image size on product detail page */
 .product-detail-image {
     max-height: 500px;
     max-width: 500px;
     object-fit: scale-down;
 }
 
+/* Restrict image size on cart page */
 .cart-image {
     max-width: 200px;
     max-height: 200px;
 }
 
+/* Restrict image size on checkout page */
 .checkout-thumbnail,
 .edit-thumbnail {
     max-width: 100px;
@@ -314,10 +319,12 @@ li.nav-item > a.nav-link.show {
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1105px) {
+    /* Resize site title */
     .main-logo-link h2 {
         font-size: calc(1.2rem + .9vw);
     }
 
+    /* Move menu left to prevent overflow off screen */
     #brands-link-dropdown {
         left: -35px;
     }
@@ -334,8 +341,9 @@ li.nav-item > a.nav-link.show {
     }
 }
 
-/* pad the top when navbar is collapsed on mobile */
+
 @media only screen and (max-width: 991px) {
+    /* pad the top when navbar is collapsed on mobile */
     body {
         height: calc(100vh - 195px);
     }
@@ -348,23 +356,28 @@ li.nav-item > a.nav-link.show {
         font-size: 2rem;
     }
 
+    /* Reduce padding on navbar icons */
     li.list-inline-item > a.nav-link {
         padding: 0.15rem 0.15rem;
     }
 
+    /* Make navbar icons smaller on mobile */
     .top-nav-icon {
         font-size: 1rem;
     }
 
+    /* Make toggle button smaller on mobile */
     .navbar-toggler {
         padding: .6rem .6rem;
         font-size: 1rem;
     }
 
+    /* Resize delivery banner to avoid text wrapping */
     #delivery-banner-heading {
         font-size: .9rem;
     }
 
+    /* Resize buttons to keep inline on mobile */
     .keep-shopping-btn {
         padding: .375rem .375rem;
         font-size: .75rem
@@ -379,5 +392,10 @@ li.nav-item > a.nav-link.show {
     .btn.btn-outline-black.btn-lg {
         padding: .375rem .375rem;
         font-size: .75rem;
+    }
+
+    /* Move menu left to prevent overflow off screen */
+    #user-options-dropdown {
+        left: -30px;
     }
 }

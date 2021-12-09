@@ -30,7 +30,7 @@
                 <p class="my-0">My Account</p>
             </div>
         </a>
-        <div class="dropdown-menu border-0 bg-smoke" aria-labelledby="user-options">
+        <div class="dropdown-menu border-0 bg-smoke" aria-labelledby="user-options" id="user-options-dropdown">
             {% if request.user.is_authenticated %}
             {% if request.user.is_superuser %}
             <a href="{% url 'product_management' %}" class="dropdown-item">Product Management</a>
