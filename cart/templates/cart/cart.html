@@ -104,6 +104,7 @@
                                     {% if not discount == None %}
                                         <div class="mb-2">
                                             <p>Current Discount Code: <span>{{ discount }}</span></p>
+                                            <a href="{% url 'cancel_discount' %}" class="text-danger ms-3">Cancel</a>
                                             <p>Savings: <span>£{{ discount_savings|floatformat:2 }} - {{ discount.amount }}%</span> off!</p>
                                         </div>
                                     {% endif %}

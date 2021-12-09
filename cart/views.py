@@ -11,12 +11,17 @@ from .models import Discount
 
 def view_cart(request):
     """ A view that renders the cart contents page """
+    on_cart_page = True
+    context = {
+        'on_cart_page': on_cart_page,
+    }
 
-    return render(request, 'cart/cart.html')
+    return render(request, 'cart/cart.html', context)
 
 
 @require_POST
 def discount_apply(request):
+    """ Apply discount code """
     now = datetime.datetime.now()
     code = request.POST.get('discount-code')
 
@@ -37,6 +42,13 @@ def discount_apply(request):
         return redirect('view_cart')
     else:
         return redirect('view_cart')
+
+
+def cancel_discount(request):
+    """ Cancel applied discount """
+    request.session['discount_id'] = None
+
+    return redirect('view_cart')
 
 
 def add_to_cart(request, item_id):
