@@ -33,7 +33,7 @@
                 <!-- Product sorting adapted from Boutique Ado walkthrough project -->
                 <div class="row mt-1 mb-2">
                     <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
-                        <div class="sort-select-wrapper w-50">
+                        <div class="sort-select-wrapper">
                             <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
                                 <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
                                 <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
@@ -59,7 +59,7 @@
                 </div>
                 <div class="row">
                     {% for product in products %}
-                        <div class="col-sm-12 offset-sm-3 col-md-6 offset-md-0 col-lg-4 col-xl-3">
+                        <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-0 col-lg-4 col-xl-3">
                             <div class="card text-center bg-smoke h-100 border-0">
                                 {% if product.image %}
                                     <a href="{% url 'product_detail' product.id %}">
