@@ -268,6 +268,17 @@ Sleeping Dragon Hobby Shop is an e-commerce store for an existing company sellin
 * [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 * [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 
+
+#### Database 
+* Development - [SQLite](https://docs.djangoproject.com/en/3.2/ref/databases/#sqlite-notes)
+* Deployed site - [Heroku PostgreSQL](https://www.heroku.com/postgres)
+
+#### Storage 
+* [Amazon AWS S3](https://aws.amazon.com/) - used to store static files.
+
+#### Payments 
+* [Stripe](https://stripe.com/docs/api) - fully integrated payments platform.
+
 #### Libraries & Frameworks:
 * [Django](https://en.wikipedia.org/wiki/Django_(web_framework))
 * [Balsamiq](https://balsamiq.com/) - Used for the creation of wireframes.
@@ -278,6 +289,14 @@ Sleeping Dragon Hobby Shop is an e-commerce store for an existing company sellin
 * [Bootstrap v5.0](https://getbootstrap.com/) - A mobile-first responsive library used to construct various parts of the project
 * [Popper](https://popper.js.org/) - Included as a requirement of Bootstrap.
 * [django-allauth](https://django-allauth.readthedocs.io/en/latest/index.html) - Used for user authentication
+* [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) - **Amazon Web Services SDK** for python. Used to configure **Amazon Web Services S3** storage of static files.
+* [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) - enables enhanced rendering of Django forms including integration with **Bootstrap**.
+* [dj-database-url](https://pypi.org/project/dj-database-url/) - Django database configuration utility. Used to configure connection to the **Heroku** deployed postgres database.
+* [django-countries](https://pypi.org/project/django-countries/) - Django application providing country choices for use with forms etc. Used to populate country choices on the **Country** dropdowns.
+* [django-storages](https://django-storages.readthedocs.io/en/latest/) - Custom storage backends for **Django**. Used to configure **Amazon Web Services S3** storage of static files.
+* [gunicorn](https://gunicorn.org/) - Python WSGI HTTP Server for UNIX. Used as part of the **Heroku** deployment process.
+* [pillow](https://pillow.readthedocs.io/en/stable/) - Python imaging library.
+* [psycopg2](https://pypi.org/project/psycopg2/) - **PostgreSQL** database adapter for Python. Used as part of the **Heroku** deployment process.
 
 #### Version Control:
 * [Github](https://github.com/) - Used to store the code 
@@ -286,7 +305,6 @@ Sleeping Dragon Hobby Shop is an e-commerce store for an existing company sellin
 
 #### Other:
 * [Code Institute Course Content](https://courses.codeinstitute.net/) - Primary source of learning code.
-* [Stripe](https://stripe.com/docs/api) - fully integrated payments platform.
 * [Stack Overflow](https://stackoverflow.com/) - Used for general troubleshooting and examples.
 * [W3Schools](https://www.w3schools.com/) - Used for examples and tutorials.
 * [ChromeDevTools](https://developers.google.com/web/tools/chrome-devtools) - Used frequently to detect any issues/bugs or layout differences.
@@ -294,9 +312,6 @@ Sleeping Dragon Hobby Shop is an e-commerce store for an existing company sellin
 * [ami.responsive](http://ami.responsivedesign.is/) - Used to generate multi-device mockup image.
 * [ResizeImage](https://resizeimage.net/) - Used to resize images to web-optimised sizes
 * [Unsplash](https://unsplash.com) - Used to find suitable background and images throughout the project.
-* [Amazon Web Services](https://aws.amazon.com/?nc2=h_lg) - Used for storage of static and media files for deployed site
-* [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) - enables enhanced rendering of Django forms including integration with **Bootstrap**.
-
 
 ---
 
