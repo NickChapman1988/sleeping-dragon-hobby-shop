@@ -266,6 +266,7 @@ The target audience for Sleeping Dragon Hobby Shop are consumers looking to purc
 
 ### Images
 
+* The home page background image is by [Pawel Czerwinski](https://unsplash.com/@pawel_czerwinski?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/paint-minimal-background?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText), rotated 90 degrees anti-clockwise to serve as a landscape background with the "swirl" moving from top-left to bottom-right in order to fit the initial vision for the home page design. The bright pink adds another accent colour to catch the user's attention, while the blue and off-white match the overall colour scheme of the site. The swirls of colour also add a visual connection to the site's purpose (i.e. selling paints
 
 ### Colours
 
@@ -281,9 +282,11 @@ Colours were largely chosen to present a clean, easily-navigated, professional s
 
 ### Typography
 
+[Lato](https://fonts.google.com/specimen/Lato?query=Lato) was chosen as the main title font, as it is easily legible and is similar to the company's existing typography. [Libre Franklin](https://fonts.google.com/specimen/Libre+Franklin?query=Libre+Franklin) was chosen for the main content font, as it is easy to read, has plenty of styling options and complements Lato well. 
 
 ### Icons
 
+Appropriate icons across the site were taken from [Font Awesome](https://fontawesome.com/). These add important visual cues for users, especially on mobile devices. 
 
 ## Features
 
