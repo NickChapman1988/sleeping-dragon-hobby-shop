@@ -304,7 +304,7 @@ The site allows admin users to add, edit, and delete products and product catego
     - The site restricts information shown to users based on whether they are unregistered, registered, or admin
     - Some site routes block access to non-admin users
 * (US05): The site uses django and allauth secure logins and access restrictions
-    - The site enforces the use of https to ensure user communications and data are transmitted securely
+    - The site enforces the use of HTTPS to ensure user communications and data are transmitted securely
     - Passwords are stored in hashed form so can't be stolen even if the website were to be hacked
 * (US06): Allauth offers password resetting routes and links
 * (US07): 
@@ -320,16 +320,27 @@ The site allows admin users to add, edit, and delete products and product catego
 * (US15): Product search results are shown with the product count and search term displayed alongside the results
 
 #### Purchasing and Checkout
-* (US16):
-* (US17):
-* (US18):
-* (US19):
-* (US20):
-* (US21):
+* (US16): Shopping Cart page displays full list of cart items and costs, shopping cart toast message displays cart when product added
+* (US17): Products in the cart can have their quantity increased or decreased, or deleted entirely
+    - Adjusting quantity also requires clicking an update button
+    - Update and remove buttons are separated in the UI to prevent mistakenly clicking the wrong button
+* (US18): On checkout users are presented with a simple validated form to enter personal and payment information, with registered users able to save personal information to their profile to pre-fill the form for even quicker checkout
+* (US19): Checkout is supported by the secure Stripe payment platform
+* (US20): After checkout a checkout success page is generated, giving the user details of their order items, delivery info and billing info
+* (US21): After checkout an email is generated with the order information
 
 #### Sales and Reports
+* (US22):
+* (US23): 
+* (US24): 
 #### Admin and Store Management
-
+* (US25): Product Management page (admin only) allows admin to create new products or categories
+* (US26): Individual products can be edited by admin users from all product pages, or from individual product detail pages
+    - Categories can be edited from Product Management page
+* (US27): Admin users can delete individual products from all product pages, or from individual product detail pages
+    - Admin users can delete categories from Product Management page
+    - To ensure products aren't deleted accidentally, when delete button is pressed a modal is shown asking the usre to confirm
+    
 ### Features Left to Implement
 
 
