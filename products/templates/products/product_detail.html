@@ -75,9 +75,9 @@
                     {% endif %}
                     <p class="mt-3">{{ product.description }}</p>
                     {% if product.stock > 0 %}
-                        <p class="mb-0 text-left fw-bold highlight-text">{{ product.stock }} in Stock</p>
+                        <p class="mb-0 text-left fw-bold text-dark-blue">{{ product.stock }} in Stock</p>
                     {% else %}
-                        <p class="mb-0 text-left fw-bold highlight-text">Out of Stock</p>
+                        <p class="mb-0 text-left fw-bold text-dark-blue">Out of Stock</p>
                     {% endif %}
                     <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
                         {% csrf_token %}

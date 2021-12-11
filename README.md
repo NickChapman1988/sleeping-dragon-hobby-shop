@@ -4,6 +4,11 @@
 
 ### [See live site.](https://sleeping-dragon-hobby-shop.herokuapp.com/)
 
+Assessor login credentials:
+
+Username: 
+Password: 
+
 ## Table of Contents
 
 > -	[Overview](#overview)
@@ -22,6 +27,25 @@ Sleeping Dragon Hobby Shop is an e-commerce store for an existing company sellin
 
 ## Description
 
+Sleeping Dragon Hobby Shop is an e-commerce store built using the Django/Python full stack MVC framework and related technologies. It uses a relational data model and application features to implement the required business logic, and allows relational data to be managed, queried and manipulated in order to meet the needs of the site users.
+
+## Target Audience
+
+The target audience for Sleeping Dragon Hobby Shop are consumers looking to purchase scenic modelling and hobby supplies aimed at wargamers, role-players and tabletop gamers. The site aims to meet the shopping needs of hobbyists of all stripes, by offering products from a number of well-known brands, a wide range of materials, and extensive product details to allow users to make informed purchases.
+
+## Business Objectives
+
+* Provide a high-quality, well-designed online shop that enables secure purchases, inspires confidence in the quality of the product and service, and encourages repeat purchases.
+* Grow the brand over time, and expand to new ranges and products
+* Listen and respond to customer feedback to guide product expansion
+* Track sales data to inform future business strategy
+
+## User Objectives
+* Purchase high quality modelling supplies
+* See other user's reviews and feedback to inspire confidence in making a purchase
+* Review and recommend products
+* Contact the business about products and orders
+* Have a personalised profile to enable quicker, smoother purchasing
 
 ## User Experience (UX)
 
@@ -231,7 +255,7 @@ Sleeping Dragon Hobby Shop is an e-commerce store for an existing company sellin
 ## Structure
 
 - ### Data Structure
-![Image](data-structure.png)
+![Image](design/data-structure.png)
 
 
 ## Skeleton
@@ -245,6 +269,15 @@ Sleeping Dragon Hobby Shop is an e-commerce store for an existing company sellin
 
 ### Colours
 
+Colours were largely chosen to present a clean, easily-navigated, professional storefront, with nods to the [existing company site](https://www.sleepingdragonhobbyshop.co.uk/). Rich Black provides the main font colour and 'confirmation' button colour. Cultured Grey provides the main off-white background colour, to match the colour of the homepage background image. White is used where appropriate as a font colour and button colour. Green Blue Crayola is the main accent colour, used for buttons, highlight text and the shop delivery banner background. Dark Cornflower Blue is used as a complimentary colour to the main brand blue, used for hover effects and occasional font colour.
+
+![Image](design/color-palette.png)
+
+* Rich Black (#14161A)
+* White (#FFFFFF)
+* Cultured Grey (#F7F7F7)
+* Green Blue Crayola (#228CDB)
+* Dark Cornflower Blue (#1C448E)
 
 ### Typography
 
