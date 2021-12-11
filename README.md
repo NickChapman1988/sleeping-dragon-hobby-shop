@@ -290,8 +290,45 @@ Appropriate icons across the site were taken from [Font Awesome](https://fontawe
 
 ## Features
 
+The site allows admin users to add, edit, and delete products and product categories. It provides normal users with the functionality to search products by name or description, or browse products by category through a main navbar. Users can also sort products by price, rating, name or category. Products can be added to a user's shopping cart so long as there is stock available, and products in the cart can then be updated or removed before being purchased through a secure payment system backed by Stripe. Users are also able to apply discount codes to their shopping cart, if they have one available. Once payment is confirmed products are removed from stock levels and orders are created in the database. Successful checkout will generate an order confirmation email to the user's provided email address, and the user can view their order history through their personalised profile, should they decide to register an account. Registered users have the ability to add product reviews and ratings, and edit and delete their existing reviews. 
 
 ### Existing Features
+
+#### Viewing and Navigation
+* (US01): Products displayed on variety of product pages, sortable by category 
+* (US02): Each product has a details page with detailed product information
+* (US03): Shopping cart total is displayed on all pages, shopping cart toast displays total when products added to cart
+
+#### Registration and User Accounts
+* (US04): Users can register accounts through allauth
+    - The site restricts information shown to users based on whether they are unregistered, registered, or admin
+    - Some site routes block access to non-admin users
+* (US05): The site uses django and allauth secure logins and access restrictions
+    - The site enforces the use of https to ensure user communications and data are transmitted securely
+    - Passwords are stored in hashed form so can't be stolen even if the website were to be hacked
+* (US06): Allauth offers password resetting routes and links
+* (US07): 
+* (US08): Users have a personal user profile which can store some basic checkout information and provides links to their past orders
+* (US09): 
+
+#### Sorting and Searching
+* (US10): Products can be viewed by rating, price and category from the main navbar, or on category pages via the sort selector
+* (US11): Products can be viewed in categories from the main navbar, and sorted using the sort selector on each page
+* (US12): Products can be viewed in multiple categories from the main navbar (e.g. 'All Paints', 'All Materials') and sorted via the sort selector 
+* (US13): Products can be viewed by brand from the main navbar
+* (US14): Products can be searched by name or description
+* (US15): Product search results are shown with the product count and search term displayed alongside the results
+
+#### Purchasing and Checkout
+* (US16):
+* (US17):
+* (US18):
+* (US19):
+* (US20):
+* (US21):
+
+#### Sales and Reports
+#### Admin and Store Management
 
 ### Features Left to Implement
 
