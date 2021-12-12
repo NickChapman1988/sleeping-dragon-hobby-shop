@@ -110,14 +110,6 @@ input[name='query']::placeholder {
 }
 
 /* Convenience classes - colors copied from Bootstrap */
-.arrow-primary {
-    border-bottom-color: #007bff !important;
-}
-
-.arrow-secondary {
-    border-bottom-color: #6c757d !important;
-}
-
 .arrow-danger {
     border-bottom-color: #dc3545 !important;
 }
@@ -128,14 +120,6 @@ input[name='query']::placeholder {
 
 .arrow-info {
     border-bottom-color: #17a2b8 !important;
-}
-
-.arrow-light {
-    border-bottom-color: #f8f9fa !important;
-}
-
-.arrow-dark {
-    border-bottom-color: #343a40 !important;
 }
 
 .cart-notification-wrapper {
