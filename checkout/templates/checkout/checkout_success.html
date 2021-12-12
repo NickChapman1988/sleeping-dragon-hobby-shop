@@ -28,7 +28,7 @@
         </div>
         <div class="row">
             <div class="col-12 col-lg-7">
-                <div class="order-confirmation-wrapper p-2 border">
+                <div class="order-confirmation-wrapper p-2 border mb-2">
                     <div class="row">
                         <div class="col">
                             <p class="fw-bold highlight-text mb-0">Order Info:</p>
@@ -71,7 +71,8 @@
                         </div>
                     </div>
                     {% endfor %}
-
+                </div>
+                <div class="order-confirmation-wrapper p-2 border mb-2">
                     <div class="row">
                         <div class="col">
                             <p class="fw-bold highlight-text mb-0">Delivering To:</p>
@@ -143,7 +144,7 @@
                             <small class="mb-0 text-black fw-bold">Country</small>
                         </div>
                         <div class="col-12 col-md-8 text-md-end">
-                            <p class="mb-0">{{ order.country }}</p>
+                            <p class="mb-0">{{ order.country.name }}</p>
                         </div>
                     </div>
 
@@ -155,7 +156,8 @@
                             <p class="mb-0">{{ order.phone_number }}</p>
                         </div>
                     </div>
-
+                </div>
+                <div class="order-confirmation-wrapper p-2 border mb-2">
                     <div class="row">
                         <div class="col">
                             <p class="fw-bold highlight-text mb-0">Billing Info:</p>
