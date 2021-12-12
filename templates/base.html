@@ -146,6 +146,10 @@
       {% block content %}
       {% endblock %}
 
+      <footer class="container-fluid">
+        {% include 'includes/footer.html' %}
+      </footer>
+
       {% block postloadjs %}
       <!-- Toasts Initialization JS, thanks to Richard Ash on Slack! -->
         <script type="text/javascript">
