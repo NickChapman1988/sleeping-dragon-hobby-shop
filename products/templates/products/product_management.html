@@ -43,8 +43,28 @@
                         {% for category in categories %}
                             <option value="{{ category.id }}" {% if current_sorting == '{{ category.name }}' %}selected{% endif %}>{{ category.display_name }}</option>
                         {% endfor %}
-                    </select>
-                    <a href="" id="delete-category-btn" class="btn bg-danger text-white rounded-0 my-3">Delete Category</a>
+                    </select>                    
+                    <a href="#" class="btn bg-danger text-white rounded-0 my-3 ms-2 category-delete-modal-trigger" data-bs-toggle="modal" data-bs-target="#category-delete-modal">
+                        Delete Category
+                    </a>  
+                    <!-- Delete Modal -->
+                    <div class="modal fade" id="category-delete-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="category-delete-modal-label" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header bg-smoke">
+                                    <h5 class="modal-title logo-font" id="category-delete-modal-label">Delete product?</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body bg-smoke">
+                                    <p>Do you really want to delete {{ category.display_name }}?</p>
+                                </div>
+                                <div class="modal-footer bg-smoke">
+                                    <button type="button" class="btn btn-blue" data-bs-dismiss="modal">Cancel</button>
+                                    <a href="" id="delete-category-btn" class="btn btn-outline-black">Confirm Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>            
