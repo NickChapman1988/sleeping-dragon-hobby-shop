@@ -139,14 +139,15 @@
           {% endfor %}
         </div>
       {% endif %}
+      <main>
+        {% block page_header %}
+        {% endblock %}
 
-      {% block page_header %}
-      {% endblock %}
+        {% block content %}
+        {% endblock %}
+      </main>
 
-      {% block content %}
-      {% endblock %}
-
-      <footer class="container-fluid my-5 py-3">
+      <footer class="container-fluid mt-5 py-3">
         {% include 'includes/footer.html' %}
       </footer>
 
