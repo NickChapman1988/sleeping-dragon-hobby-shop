@@ -255,7 +255,7 @@ The target audience for Sleeping Dragon Hobby Shop are consumers looking to purc
 ## Structure
 
 - ### Data Structure
-![Image](design/data-structure.png)
+![Image](media/design/data-structure.png)
 
 
 ## Skeleton
@@ -272,7 +272,7 @@ The target audience for Sleeping Dragon Hobby Shop are consumers looking to purc
 
 Colours were largely chosen to present a clean, easily-navigated, professional storefront, with nods to the [existing company site](https://www.sleepingdragonhobbyshop.co.uk/). Rich Black provides the main font colour and 'confirmation' button colour. Cultured Grey provides the main off-white background colour, to match the colour of the homepage background image. White is used where appropriate as a font colour and button colour. Green Blue Crayola is the main accent colour, used for buttons, highlight text and the shop delivery banner background. Dark Cornflower Blue is used as a complimentary colour to the main brand blue, used for hover effects and occasional font colour.
 
-![Image](design/color-palette.png)
+![Image](media/design/color-palette.png)
 
 * Rich Black (#14161A)
 * White (#FFFFFF)
@@ -505,6 +505,6 @@ For further information on *Cloning* a [GitHub](https://github.com/) repository,
 
 
 ## Credits
-
+* Footer positioning fixed thanks to [this article](https://developer.mozilla.org/en-US/docs/Web/CSS/Layout_cookbook/Sticky_footers)
 
 ## Acknowledgements
