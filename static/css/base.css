@@ -340,13 +340,13 @@ li.nav-item > a.nav-link.show {
 /*-------------------------- Media Queries */
 
 /* Increase container width on xl screens */
-@media only screen and (min-width: 1200px) {
+@media screen and (min-width: 1200px) {
     .container {
         max-width: 80%;
     }
 }
 
-@media only screen and (min-width: 992px) and (max-width: 1105px) {
+@media screen and (min-width: 992px) and (max-width: 1105px) {
     /* Resize site title */
     .main-logo-link h2 {
         font-size: calc(1.2rem + .9vw);
@@ -359,7 +359,7 @@ li.nav-item > a.nav-link.show {
 }
 
 /* fixed top navbar only on large and up */
-@media only screen and (min-width: 992px)  {
+@media screen and (min-width: 992px)  {
     .fixed-top-desktop-only {
         position: fixed;
         top: 0;
@@ -370,7 +370,7 @@ li.nav-item > a.nav-link.show {
 }
 
 
-@media only screen and (max-width: 991px) {
+@media screen and (max-width: 991px) {
     /* pad the top when navbar is collapsed on mobile */
     body {
         height: calc(100vh - 195px);
@@ -387,11 +387,6 @@ li.nav-item > a.nav-link.show {
     /* Reduce padding on navbar icons */
     li.list-inline-item > a.nav-link {
         padding: 0.15rem 0.15rem;
-    }
-
-    /* Make navbar icons smaller on mobile */
-    .top-nav-icon {
-        font-size: 1rem;
     }
 
     /* Make toggle button smaller on mobile */
@@ -428,7 +423,7 @@ li.nav-item > a.nav-link.show {
     }
 }
 
-@media only screen and (max-width: 310px) {
+@media screen and (max-width: 310px) {
     .header-container {
         padding-top: 190px;
     }
