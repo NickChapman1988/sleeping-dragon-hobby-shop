@@ -317,6 +317,11 @@ li.nav-item > a.nav-link.show {
 
 /*------------------------- Product Form */
 
+#product-form .form-group,
+#review-form .form-group {
+    margin-bottom: 16px;
+}
+
 .btn-file {
     position: relative;
     overflow: hidden;

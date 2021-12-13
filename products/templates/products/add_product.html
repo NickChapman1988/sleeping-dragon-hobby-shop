@@ -23,7 +23,7 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <form action="{% url 'add_product' %}" method="post" class="form mb-2" enctype="multipart/form-data">
+                <form id="product-form" action="{% url 'add_product' %}" method="post" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% for field in form %}
                         {% if field.name != 'image' %}
@@ -33,7 +33,7 @@
                         {% endif %}
                     {% endfor %}
                     <div class="text-end">
-                        <a href="{% url 'products' %}" class="btn btn-blue rounded-0">Cancel</a>
+                        <a href="{% url 'product_management' %}" class="btn btn-blue rounded-0">Cancel</a>
                         <button type="submit" class="btn btn-outline-black rounded-0">Add Product</button>
                     </div>
                 </form>
