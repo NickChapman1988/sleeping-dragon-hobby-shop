@@ -78,38 +78,26 @@
                 <table class="table table-sm table-borderless">
                     <thead>
                         <tr>
-                            <th>Order Number</th>
-                            <th>Customer Name</th>
-                            <th>Date</th>
-                            <th>Items</th>
+                            <th>Order</th>
+                            <th>Date</th> 
                             <th>Delivery Address</th>
-                            <th>Order Total</th>
+                            <th>Total</th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for order in latest_orders %}
                         <tr>
-                            <td><small>{{ order.order_number|truncatechars:6 }}</small></td>
-                            <td><small>{{ order.full_name }}</small></td>
+                            <td><small>{{ order.order_number|truncatechars:6 }} {{ order.full_name }}</small></td>
                             <td><small>{{ order.date }}</small></td>
                             <td>
-                                <ul class="list-unstyled">
-                                    {% for item in order.lineitems.all %}
-                                    <li class="small">
-                                        {{ item.product.name }} x{{ item.quantity }}
-                                    </li>
-                                    {% endfor %}
-                                </ul>
-                            </td>
-                            <td>
-                                <ul class="list-unstyled">
-                                    <li class="small">{{ order.street_address1 }}</li>
-                                    <li class="small">{{ order.street_address2 }}</li>
-                                    <li class="small">{{ order.town_or_city }}</li>
-                                    <li class="small">{{ order.county }}</li>
-                                    <li class="small">{{ order.postcode }}</li>
-                                    <li class="small">{{ order.country }}</li>
-                                </ul>
+                                <small>
+                                    {{ order.street_address1 }}, 
+                                    {{ order.street_address2 }}, 
+                                    {{ order.town_or_city }},  
+                                    {{ order.county }}, 
+                                    {{ order.postcode }}, 
+                                    {{ order.country }}
+                                </small>
                             </td>
                             <td><small>£{{ order.grand_total }}</small></td>
                         </tr>
