@@ -87,7 +87,14 @@
                     <tbody>
                         {% for order in latest_orders %}
                         <tr>
-                            <td><small>{{ order.order_number|truncatechars:6 }} {{ order.full_name }}</small></td>
+                            <td>
+                                <small>
+                                    <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
+                                        {{ order.order_number|truncatechars:6 }}
+                                    </a> 
+                                    {{ order.full_name }}
+                                </small>
+                            </td>
                             <td><small>{{ order.date }}</small></td>
                             <td>
                                 <small>

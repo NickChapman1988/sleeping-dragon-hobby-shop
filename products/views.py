@@ -108,7 +108,7 @@ def product_management(request):
 
     products = Product.objects.all()
     categories = Category.objects.all()
-    latest_orders = Order.objects.all()[:5]
+    latest_orders = Order.objects.all().order_by('-date')[:6]
 
     # Sort categories alphabetically
     categories = categories.order_by('name')
@@ -117,6 +117,7 @@ def product_management(request):
         'products': products,
         'categories': categories,
         'latest_orders': latest_orders,
+        'on_product_mgmt_page': True,
     }
 
     return render(request, 'products/product_management.html', context)
