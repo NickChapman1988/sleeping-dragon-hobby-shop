@@ -199,6 +199,7 @@ li.nav-item > a.nav-link.show {
 .btt-button {
     height: 42px;
     width: 42px;
+    border: 2px solid white;
     border-radius: 50%;
     background: #228CDB;
     position: fixed;
