@@ -75,6 +75,26 @@ input[name='query']::placeholder {
     color: #aab7c4;
 }
 
+/* -------------------------- Footer */
+footer {
+    background-color: #228CDB;
+}
+
+footer li.list-item::marker {
+    color: #228CDB;
+}
+
+footer .policy-link {
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+.social-icon {
+    color: white;
+    font-size: 1.5rem;
+}
+
 /* ------------------------- BS Toasts */
 
 .message-container {
