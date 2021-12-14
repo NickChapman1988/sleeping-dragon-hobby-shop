@@ -53,8 +53,8 @@ class TestOrderForm(TestCase):
             'county': 'test',
         })
         self.assertFalse(form.is_valid())
-        self.assertIn('name', form.errors.keys())
-        self.assertEqual(form.errors['name'][0], 'This field is required.')
+        self.assertIn('full_name', form.errors.keys())
+        self.assertEqual(form.errors['full_name'][0], 'This field is required.')
 
     def test_email_field_is_required(self):
         """ Test email field is required """
