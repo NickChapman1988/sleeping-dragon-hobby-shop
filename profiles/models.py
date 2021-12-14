@@ -1,3 +1,4 @@
+""" Profiles app models """
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
@@ -30,7 +31,7 @@ class UserProfile(models.Model):
         blank_label='Country', null=True, blank=True)
 
     def __str__(self):
-        return self.user.username
+        return str(self.user.username)
 
 
 @receiver(post_save, sender=User)
