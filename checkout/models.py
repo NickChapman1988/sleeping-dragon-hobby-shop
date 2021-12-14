@@ -1,5 +1,5 @@
 # Adapted from Boutique Ado walkthrough project by Code Institute
-
+""" Models for Checkout app """
 import uuid
 from decimal import Decimal
 from django.db import models
@@ -13,6 +13,7 @@ from cart.models import Discount
 
 
 class Order(models.Model):
+    """ Order model """
     order_number = models.CharField(max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(
         UserProfile, on_delete=models.SET_NULL, null=True,
@@ -84,6 +85,7 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
+    """ OrderLineItem model """
     order = models.ForeignKey(
         Order, null=False, blank=False,
         on_delete=models.CASCADE, related_name='lineitems')
@@ -103,4 +105,5 @@ class OrderLineItem(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
+        """ String method """
         return f'SKU {self.product.sku} on order {self.order.order_number}'
