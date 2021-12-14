@@ -13,4 +13,4 @@ class Discount(models.Model):
     active = models.BooleanField(default=True)
 
     def __str__(self):
-        return self.code
+        return str(self.code)

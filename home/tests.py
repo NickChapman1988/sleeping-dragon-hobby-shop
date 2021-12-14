@@ -1,9 +1,9 @@
+""" Home app tests """
 from django.test import TestCase
-
-# Create your tests here.
 
 
 class TestHomeViews(TestCase):
+    """ Test Home app views """
     def test_landing_page(self):
         """ Tests loading the landing page """
         response = self.client.get('/')
