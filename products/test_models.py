@@ -78,6 +78,7 @@ class TestReviewModel(TestCase):
     """ Tests the Review model """
 
     def test_string_method_returns_username_and_product(self):
+        """ Test string method returns username and product """
         user = User.objects.create(
             username = 'test'
         )

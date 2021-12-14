@@ -1,3 +1,4 @@
+""" Models for the Products app """
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
@@ -8,20 +9,25 @@ from django.db.models import Avg
 
 
 class Category(models.Model):
+    """ Category model """
     name = models.CharField(max_length=254)
     display_name = models.CharField(max_length=254, blank=True)
 
     class Meta:
+        """ Metadata for Category model """
         verbose_name_plural = 'Categories'
 
     def __str__(self):
-        return self.name
+        """ String method """
+        return str(self.name)
 
     def get_display_name(self):
+        """ Get category display name """
         return self.display_name
 
 
 class Product(models.Model):
+    """ Product model """
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254, blank=True)
@@ -40,7 +46,8 @@ class Product(models.Model):
     image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
-        return self.name
+        """ String method """
+        return str(self.name)
 
     def calculate_rating(self):
         """ Calculate product rating from reviews """
@@ -51,6 +58,7 @@ class Product(models.Model):
 
 
 class Review(models.Model):
+    """ Review model """
     product = models.ForeignKey(
         'Product', null=True, blank=True,
         related_name='reviews', on_delete=models.SET_NULL)
@@ -63,4 +71,5 @@ class Review(models.Model):
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
+        """ String method """
         return self.user.username + ", " + str(self.product)
