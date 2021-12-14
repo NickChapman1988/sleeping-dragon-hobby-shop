@@ -1,3 +1,4 @@
+""" Checkout app views """
 import json
 
 from django.shortcuts import (render, redirect, reverse,
@@ -19,6 +20,7 @@ from .forms import OrderForm
 
 @require_POST
 def cache_checkout_data(request):
+    """ cache checkout data """
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -28,13 +30,14 @@ def cache_checkout_data(request):
             'username': request.user,
         })
         return HttpResponse(status=200)
-    except Exception as e:
+    except Exception as error:
         messages.error(request, 'Sorry, your payment cannot be \
             processed right now. Please try again later. ')
-        return HttpResponse(content=e, status=400)
+        return HttpResponse(content=error, status=400)
 
 
 def checkout(request):
+    """ handle checkout requests """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 

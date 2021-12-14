@@ -1,4 +1,4 @@
-from decimal import Decimal
+""" Checkout app models tests """
 from django.utils import timezone
 from django.shortcuts import get_object_or_404
 from django.test import TestCase
@@ -120,5 +120,5 @@ class TestOrderLineItemModel(TestCase):
             quantity = 10,
         )
 
-        self.assertEqual(str(orderlineitem), 
+        self.assertEqual(str(orderlineitem),
         f'SKU {product.sku} on order {order.order_number}')
