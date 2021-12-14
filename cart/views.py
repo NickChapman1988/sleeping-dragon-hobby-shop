@@ -1,3 +1,4 @@
+""" Cart app views """
 import datetime
 
 from django.shortcuts import (render, redirect, reverse,
@@ -104,6 +105,6 @@ def remove_from_cart(request, item_id):
         request.session['cart'] = cart
         return HttpResponse(status=200)
 
-    except Exception as e:
-        messages.error(request, f'Error removing item: {e}')
+    except Exception as error:
+        messages.error(request, f'Error removing item: {error}')
         return HttpResponse(status=500)
