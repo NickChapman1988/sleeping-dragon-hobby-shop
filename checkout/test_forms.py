@@ -53,6 +53,8 @@ class TestOrderForm(TestCase):
             'county': 'test',
         })
         self.assertFalse(form.is_valid())
+        self.assertIn('name', form.errors.keys())
+        self.assertEqual(form.errors['name'][0], 'This field is required.')
 
     def test_email_field_is_required(self):
         """ Test email field is required """
@@ -68,6 +70,8 @@ class TestOrderForm(TestCase):
             'county': 'test',
         })
         self.assertFalse(form.is_valid())
+        self.assertIn('email', form.errors.keys())
+        self.assertEqual(form.errors['email'][0], 'This field is required.')
 
     def test_phone_number_field_is_required(self):
         """ Test phone number field is required """
@@ -83,6 +87,8 @@ class TestOrderForm(TestCase):
             'county': 'test',
         })
         self.assertFalse(form.is_valid())
+        self.assertIn('phone_number', form.errors.keys())
+        self.assertEqual(form.errors['phone_number'][0], 'This field is required.')
 
     def test_street_address1_field_is_required(self):
         """ Test street address1 field is required """
@@ -98,6 +104,8 @@ class TestOrderForm(TestCase):
             'county': 'test',
         })
         self.assertFalse(form.is_valid())
+        self.assertIn('street_address1', form.errors.keys())
+        self.assertEqual(form.errors['street_address1'][0], 'This field is required.')
 
     def test_town_or_city_field_is_required(self):
         """ Test town or city field is required """
@@ -113,8 +121,10 @@ class TestOrderForm(TestCase):
             'county': 'test',
         })
         self.assertFalse(form.is_valid())
-    
-    def test_town_or_city_field_is_required(self):
+        self.assertIn('town_or_city', form.errors.keys())
+        self.assertEqual(form.errors['town_or_city'][0], 'This field is required.')
+
+    def test_country_field_is_required(self):
         """ Test country field is required """
         form = OrderForm({
             'full_name': 'test',
@@ -128,3 +138,5 @@ class TestOrderForm(TestCase):
             'county': 'test',
         })
         self.assertFalse(form.is_valid())
+        self.assertIn('country', form.errors.keys())
+        self.assertEqual(form.errors['country'][0], 'This field is required.')
