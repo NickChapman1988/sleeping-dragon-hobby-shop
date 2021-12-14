@@ -1,5 +1,5 @@
 # Adapted from Boutique Ado walkthrough project by Code Institute
-
+""" Signals for the checkout app """
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 
