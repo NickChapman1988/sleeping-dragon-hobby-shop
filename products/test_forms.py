@@ -54,7 +54,7 @@ class TestProductForm(TestCase):
         self.assertFalse(form.is_valid())
         self.assertIn('height', form.errors.keys())
         self.assertEqual(form.errors['height'][0], 'This field is required.')
-    
+
     def test_product_price_is_required(self):
         """ Test price field is required """
         form = ProductForm({'price': ''})
@@ -86,7 +86,7 @@ class TestCategoryForm(TestCase):
         self.assertFalse(form.is_valid())
         self.assertIn('name', form.errors.keys())
         self.assertEqual(form.errors['name'][0], 'This field is required.')
-    
+
     def test_category_display_name_not_required(self):
         """ Test display name field is not required """
         form = CategoryForm({'name': 'Test Category'})
@@ -117,5 +117,6 @@ class TestReviewForm(TestCase):
         self.assertEqual(form.errors['rating'][0], 'This field is required.')
 
     def test_fields_are_explicit_in_form_metaclass(self):
+        """ Test fields are explicit in form metaclass """
         form = ReviewForm()
         self.assertEqual(form.Meta.fields, ('content', 'rating'))

@@ -13,7 +13,7 @@ class TestUserProfileModel(TestCase):
         User.objects.create(username = 'newusertester')
         user = get_object_or_404(User, username="newusertester")
         user_profile = get_object_or_404(UserProfile, user=user)
-        self.assertEqual(str(user.username), "newusertester")
+        self.assertEqual(str(user_profile.user.username), "newusertester")
 
     def test_profile_user_name(self):
         """Test UserProfile user_name method"""
