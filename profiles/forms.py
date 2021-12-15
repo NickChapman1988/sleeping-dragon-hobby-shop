@@ -1,4 +1,5 @@
 """ Forms for the Profiles app """
+# pylint: disable=too-few-public-methods
 from django import forms
 from .models import UserProfile
 
