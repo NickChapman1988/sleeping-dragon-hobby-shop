@@ -14,15 +14,17 @@ class TestOrderForm(TestCase):
         self.assertEqual(form_fields, ['full_name', 'email', 'phone_number',
                   'street_address1', 'street_address2',
                   'town_or_city', 'postcode', 'country',
-                  'county',])
+                  'county', ])
 
     def test_fields_are_explicit_in_form_metaclass(self):
         """ Test fields are explicit in form metaclass """
         form = OrderForm()
-        self.assertEqual(form.Meta.fields, ('full_name', 'email', 'phone_number',
-                  'street_address1', 'street_address2',
-                  'town_or_city', 'postcode', 'country',
-                  'county',))
+        self.assertEqual(form.Meta.fields, (
+            'full_name', 'email', 'phone_number',
+            'street_address1', 'street_address2',
+            'town_or_city', 'postcode', 'country',
+            'county',
+        ))
 
     def test_fields_are_not_required(self):
         """ Test non-required fields """

@@ -1,3 +1,4 @@
+""" Settings for Sleeping Dragon Hobby Shop """
 import os
 from pathlib import Path
 import dj_database_url

@@ -1,5 +1,5 @@
 # Adapted from Boutique Ado walkthrough project by Code Institute
-
+""" Views for the Products app """
 from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -211,7 +211,7 @@ def add_category(request):
     if request.method == 'POST':
         form = CategoryForm(request.POST)
         if form.is_valid():
-            category = form.save()
+            form.save()
             messages.success(request, 'Successfully added category')
             return redirect(reverse('product_management'))
         else:

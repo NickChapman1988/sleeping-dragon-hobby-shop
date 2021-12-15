@@ -1,3 +1,4 @@
+""" Products Admin """
 from django.contrib import admin
 from .models import Product, Category, Review
 
@@ -5,6 +6,7 @@ from .models import Product, Category, Review
 
 
 class ProductAdmin(admin.ModelAdmin):
+    """ Admin for Product model """
     list_display = (
         'sku',
         'name',
@@ -20,6 +22,7 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 class CategoryAdmin(admin.ModelAdmin):
+    """ Admin for Category model """
     list_display = (
         'display_name',
         'name',

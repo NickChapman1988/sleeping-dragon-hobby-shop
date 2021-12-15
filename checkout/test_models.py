@@ -19,7 +19,7 @@ class TestOrderModel(TestCase):
             country = 'GB',
             town_or_city = 'test',
             street_address1 = 'test',
-            order_total  = 15.00,
+            order_total = 15.00,
             delivery_cost = 2.00,
             grand_total = 17.00,
             stripe_pid = "Test Stripe PID",
@@ -89,6 +89,7 @@ class TestOrderModel(TestCase):
         # New total will be £90.00: £100, discount of £10
         self.assertEqual(order.grand_total, 90.00)
 
+
 class TestOrderLineItemModel(TestCase):
     """ Test OrderLineItem Model """
 
@@ -121,4 +122,4 @@ class TestOrderLineItemModel(TestCase):
         )
 
         self.assertEqual(str(orderlineitem),
-        f'SKU {product.sku} on order {order.order_number}')
+            f'SKU {product.sku} on order {order.order_number}')
