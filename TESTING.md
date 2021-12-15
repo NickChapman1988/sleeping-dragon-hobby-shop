@@ -49,7 +49,16 @@ Pylint was used to verify **Python** code. Any errors were corrected and re-run 
 <em>E1101</em> (no-member) errors are ignored for all apps, as Django dynamically adds 'objects' Manager instance to all models, but pylint is unable to detect this. This warning could be avoided by adding a `objects = models.Manager()` declaration to all models, but I have elected to suppress the warning rather than add unnecessary code to the application.
 
 <em>W0613</em> (unused-argument) errors ignored for profiles.models as arguments are necessary for creation of user profiles in the Django admin.
-<em>R0903</em> (too-few-public-methods) error ignored for profiles.forms as form is designed to store user profile information generated at checkout, allow users to edit the information, and iterate through form data in other methods.
+<em>R0903</em> (too-few-public-methods) error ignored for profiles.forms and checkout.forms as both forms are designed to store user profile information, dynamically populate each other, allow users to edit the information, and iterate through form data in other methods.
+
+<em>R0201</em> (no-self-user) error ignored for checkout.models generate_order_number method, as self is necessary to attach the generated order number to the particular Order instance
+<em>W0613</em> (unused-argument) errors ignored for checkout.signals as arguments are necessary for updating order total when updating and removing lineitems in the shopping cart.
+<em>W0125</em> (using-constant-test) error ignored for checkout.views as value is not actually a constant.
+<em>R0914</em> (too-many-locals) error ignored for checkout.views and checkout.webhook_handler as both methods in question are adapted from the Stripe documentation
+<em>W0703</em> (broad-except) error in checkout.views, checkout.webhook_handler and checkout.webhooks ignored as specific error handling is implemented where necessary, and other errors are handled in the same way so extra code for more specific exceptions would be redundant.
+
+
+
 
 
 

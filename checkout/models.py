@@ -1,4 +1,5 @@
 # Adapted from Boutique Ado walkthrough project by Code Institute
+# pylint: disable=no-member
 """ Models for Checkout app """
 import uuid
 from decimal import Decimal
@@ -40,6 +41,7 @@ class Order(models.Model):
     stripe_pid = models.CharField(
         max_length=254, null=False, blank=False, default='')
 
+    # pylint: disable=no-self-use
     def _generate_order_number(self):
         """
         Generate a random, unique order number using UUID

@@ -1,9 +1,14 @@
+# pylint: disable=too-few-public-methods
+""" Forms for Checkout app """
 from django import forms
 from .models import Order
 
 
 class OrderForm(forms.ModelForm):
+    """ OrderForm model """
+
     class Meta:
+        """ Metadata for OrderForm model """
         model = Order
         fields = ('full_name', 'email', 'phone_number',
                   'street_address1', 'street_address2',

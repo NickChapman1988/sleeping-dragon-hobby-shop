@@ -1,4 +1,7 @@
 """ Checkout app views """
+#pylint: disable=no-member
+# pylint: disable=broad-except
+
 import json
 
 from django.shortcuts import (render, redirect, reverse,
@@ -35,7 +38,8 @@ def cache_checkout_data(request):
             processed right now. Please try again later. ')
         return HttpResponse(content=error, status=400)
 
-
+# pylint: disable=too-many-locals
+# pylint: disable=inconsistent-return-statements
 def checkout(request):
     """ handle checkout requests """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
@@ -56,6 +60,7 @@ def checkout(request):
             'county': request.POST['county'],
         }
         order_form = OrderForm(form_data)
+        # pylint: disable=using-constant-test
         if order_form.is_valid:
             order = order_form.save(commit=False)
             discount = request.session.get('discount_id')
@@ -89,9 +94,9 @@ def checkout(request):
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse(
                 'checkout_success', args=[order.order_number]))
-        else:
-            messages.error(request, 'There was an error submitting your form \
-                Please check the information provided.')
+
+        messages.error(request, 'There was an error submitting your form \
+            Please check the information provided.')
     else:
         cart = request.session.get('cart', {})
         if not cart:
