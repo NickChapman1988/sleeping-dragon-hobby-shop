@@ -1,4 +1,6 @@
 """ Models for the Products app """
+# pylint: disable=no-member
+# pylint: disable=too-few-public-methods
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator

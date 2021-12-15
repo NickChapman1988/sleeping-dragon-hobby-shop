@@ -1,6 +1,7 @@
 """
 Products app signal config module
 """
+#pylint: disable=unused-argument
 
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver

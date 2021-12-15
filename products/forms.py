@@ -1,4 +1,7 @@
 """ Forms for Products app """
+# pylint: disable=no-member
+# pylint: disable=unused-variable
+# pylint: disable=too-few-public-methods
 from django import forms
 from .widgets import CustomClearableFileInput
 from .models import Product, Category, Review

@@ -1,5 +1,6 @@
 # Adapted from Boutique Ado walkthrough project by Code Institute
 """ Views for the Products app """
+# pylint: disable=no-member
 from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -137,11 +138,11 @@ def add_product(request):
             product = form.save()
             messages.success(request, 'Successfully added product')
             return redirect(reverse('product_detail', args=[product.id]))
-        else:
-            messages.error(
-                request, 'Failed to add product. Please \
-                ensure the form is valid'
-            )
+
+        messages.error(
+            request, 'Failed to add product. Please \
+            ensure the form is valid'
+        )
     else:
         form = ProductForm()
 
@@ -168,8 +169,8 @@ def edit_product(request, product_id):
             form.save()
             messages.success(request, 'Successfully updated product')
             return redirect(reverse('product_detail', args=[product.id]))
-        else:
-            messages.error(request, 'Failed to update product. \
+
+        messages.error(request, 'Failed to update product. \
             Please ensure the form is valid')
     else:
         form = ProductForm(instance=product)
@@ -214,9 +215,9 @@ def add_category(request):
             form.save()
             messages.success(request, 'Successfully added category')
             return redirect(reverse('product_management'))
-        else:
-            messages.error(request, 'Failed to add category. \
-                Please ensure the form is valid')
+
+        messages.error(request, 'Failed to add category. \
+            Please ensure the form is valid')
     else:
         form = CategoryForm()
 
@@ -243,9 +244,9 @@ def edit_category(request, category_id):
             messages.success(
                 request, f'Successfully updated {category.display_name}')
             return redirect(reverse('product_management'))
-        else:
-            messages.error(request, 'Failed to update category. \
-                Please ensure the form is valid')
+
+        messages.error(request, 'Failed to update category. \
+            Please ensure the form is valid')
     else:
         form = CategoryForm(instance=category)
         messages.info(request, f'You are editing {category.display_name}')
@@ -313,16 +314,16 @@ def review_product(request, product_id):
                 messages.success(
                     request, f'Review successfully updated for {product.name}')
             return redirect(reverse('product_detail', args=[product.id]))
+
+        # If form not valid
+        if new_review:
+            messages.error(
+                request, 'Failed to add review. \
+                Please ensure the form is valid')
         else:
-            # If form not valid
-            if new_review:
-                messages.error(
-                    request, 'Failed to add review. \
-                    Please ensure the form is valid')
-            else:
-                messages.error(
-                    request, 'Failed to update review. \
-                    Please ensure the form is valid')
+            messages.error(
+                request, 'Failed to update review. \
+                Please ensure the form is valid')
 
     else:
         product_review = Review.objects.filter(
