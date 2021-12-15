@@ -254,12 +254,125 @@ The target audience for Sleeping Dragon Hobby Shop are consumers looking to purc
 
 ## Structure
 
-- ### Data Structure
+<details><summary><b>Data Structure</b></summary>
+
 ![Image](media/design/data-structure.png)
 
+</details>
 
 ## Skeleton
 
+The company's existing site can be found [here](https://www.sleepingdragonhobbyshop.co.uk/). The current site is implemented with Wordpress and as such is restricted to utilising Wordpress themes, with limited customisation available. The site is now starting to appear dated, and in general the styling is becoming unsuitable for a modern ecommerce application.
+
+### Home Page
+
+The home page is used to used to introduce the site with a welcome message and prominent call-to-action button, as well as a colourful background that sets the overall tone for the site. The 'Shop Now' button redirects users to the all products view, while the navbar allows users to navigate to specific areas of the site.
+
+<details><summary><b>Wireframe</b></summary>
+
+![Home Page Wireframe](media/design/wireframes/home_page.png)
+
+</details> 
+
+### Products Page
+
+The Products page displays all the products available on the site, and forms the basis of the category pages, allowing users to view specific categories of product. The sort selector allows users to further order products to their preference e.g. alphabetically, by price, by rating etc. Each product has an individual 'Add to Cart' button to allow users to quickly add items to their shopping cart without having to click through to individual product pages. 
+
+<details><summary><b>Wireframe</b></summary>
+
+![Products Page Wireframe](media/design/wireframes/products_page.png)
+
+</details> 
+
+### Product Detail Page
+
+The Product Detail page displays full information about each individual product, and allows users to add specific quantities of an item to their shopping cart. 
+
+<details><summary><b>Wireframe</b></summary>
+
+![Product Detail Page Wireframe](media/design/wireframes/product_detail.png)
+
+</details>  
+
+### Single Category Page
+
+The Single Category page displays all products in a specific shop category. The specific category is displayed as a rounded pill button below the Products header, to allow ease of navigation for users. 
+
+<details><summary><b>Wireframe</b></summary>
+
+![Single Category Page Wireframe](media/design/wireframes/single_category.png)
+
+</details> 
+
+### Multi-Category Page
+
+The Multi-Category page displays each category within a product menu (e.g. 'Paints') to allow users to easily navigate through the other categories within that product menu, with the current category highlighted for ease of navigation.
+
+<details><summary><b>Wireframe</b></summary>
+
+![Multi-Category Page Wireframe](media/design/wireframes/multi_category.png)
+
+</details> 
+
+### Shopping Cart Page
+
+The Shopping Cart page displays the details of the products currently in the user's cart. Users can freely adjust quantities and products in their cart before committing to checkout.
+
+<details><summary><b>Wireframe</b></summary>
+
+![Shopping Cart Wireframe](media/design/wireframes/shopping_cart.png)
+
+</details>   
+
+### Checkout Page
+
+The Checkout page presents a condensed version of the order summary, similar to the shopping cart page, as well as the order form and payment elements. The 'Edit Order' button ('Adjust Cart' in the final site) allows users to return to adjust their cart further, while the 'Complete Order' button validates the order and payment details and completes the purchase. 
+
+<details><summary><b>Wireframe</b></summary>
+
+![Checkout Page Wireframe](media/design/wireframes/checkout.png)
+
+</details>   
+
+### Order Confirmation Page
+
+The Order Confirmation page displays the details of the completed order, including the user's delivery and billing information as well as the items purchased.
+
+<details><summary><b>Wireframe</b></summary>
+
+![Order Confirmation Page Wireframe](media/design/wireframes/order_conf.png)
+
+</details>   
+
+### Profile Page
+
+The Profile page allows a registered user to access their order history and save their default delivery information to speed up future checkouts, as well as change their password.
+
+<details><summary><b>Wireframe</b></summary>
+
+![Profile Page Wireframe](media/design/wireframes/user_profile.png)
+
+</details>  
+
+### Login Page
+
+The Login page allows registered users to login using their username and password. 
+
+<details><summary><b>Wireframe</b></summary>
+
+![Login Page Wireframe](media/design/wireframes/login_page.png)
+
+</details> 
+
+### Register Page
+
+The Register page allows unregistered users to create an account and access further features of the site.
+
+<details><summary><b>Wireframe</b></summary>
+
+![Register Page Wireframe](media/design/wireframes/register.png)
+
+</details>  
 
 
 ## Surface
