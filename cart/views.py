@@ -71,7 +71,7 @@ def add_to_cart(request, item_id):
         # display warning and prevent addition of stock
         elif cart[item_id] >= product.stock:
             messages.warning(
-                request, f'Sorry, you cannot add any more of {product.name} to your cart. \
+                request, f'Sorry, you cannot add any more {product.name} to your cart. \
                 We have {product.stock} in stock, \
                 and you already have {cart[item_id]} in your cart')
     else:
@@ -90,9 +90,18 @@ def adjust_cart(request, item_id):
     cart = request.session.get('cart', {})
 
     if quantity > 0:
-        cart[item_id] = quantity
-        messages.success(
-            request, f'Updated {product.name} quantity to {cart[item_id]}')
+        # Check cart quantity is less than product stock
+        if cart[item_id] < product.stock:
+            cart[item_id] = quantity
+            messages.success(
+                request, f'Updated {product.name} quantity to {cart[item_id]}')
+        # If cart quantity already equals product stock,
+        # display warning and prevent addition of stock
+        elif cart[item_id] >= product.stock:
+            messages.warning(
+                request, f'Sorry, you cannot add any more {product.name} to your cart. \
+                We have {product.stock} in stock, \
+                and you already have {cart[item_id]} in your cart')
     else:
         cart.pop(item_id)
         messages.success(request, f'Removed {product.name} from your cart')
