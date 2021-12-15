@@ -1,6 +1,7 @@
 # Adapted from Boutique Ado walkthrough project by Code Institute
 """ Contexts for Cart app """
 # pylint: disable=no-member
+# pylint: disable=too-many-locals
 from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404

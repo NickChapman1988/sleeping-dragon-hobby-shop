@@ -57,15 +57,14 @@ Pylint was used to verify **Python** code. Any errors were corrected and re-run 
 <em>R0914</em> (too-many-locals) error ignored for checkout.views and checkout.webhook_handler as both methods in question are adapted from the Stripe documentation
 <em>W0703</em> (broad-except) error in checkout.views, checkout.webhook_handler and checkout.webhooks ignored as specific error handling is implemented where necessary, and other errors are handled in the same way so extra code for more specific exceptions would be redundant.
 
-
-
-
-
-
-
+See [Pylint Validation Reports](media/testing/validation/python).
 
 ### Python Unit Tests
 
 Automated unit tests were created to ensure correct functioning of various components. These include the app database models, views, forms and signal functions.
 To perform automated testing, from the project root directory type:
 `>python3 manage.py test`
+
+A total of **68** **Unit Tests** have been written. After **Unit Testing** was implemented, **Unit Tests** were run each time a feature was added or changed.  
+All **68** tests run successfully without errors or warnings, see [Python Unit Testing Validation](media/testing/validation/python/unit-testing-val.jpg).
+

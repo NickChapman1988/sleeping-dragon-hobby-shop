@@ -1,5 +1,6 @@
 """ Cart app views """
 # pylint: disable=no-member
+# pylint: disable=broad-except
 import datetime
 
 from django.shortcuts import (render, redirect, reverse,
@@ -72,7 +73,7 @@ def add_to_cart(request, item_id):
         # display warning and prevent addition of stock
         elif cart[item_id] >= product.stock:
             messages.warning(
-                request, f'Sorry, you cannot add any more {product.name} to your cart. \
+                request, f'Sorry, you cannot add that many {product.name} to your cart. \
                 We have {product.stock} in stock, \
                 and you already have {cart[item_id]} in your cart')
     else:
@@ -100,7 +101,7 @@ def adjust_cart(request, item_id):
                     request, f'Updated {product.name} quantity to {cart[item_id]}')
             else:
                 messages.warning(
-                request, f'Sorry, you cannot add any more {product.name} to your cart. \
+                request, f'Sorry, you cannot add that many {product.name} to your cart. \
                 We have {product.stock} in stock, \
                 and you already have {cart[item_id]} in your cart')
         # If cart quantity already equals product stock,
