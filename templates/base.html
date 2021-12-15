@@ -45,7 +45,7 @@
   </head>
   <body>
       <header class="container-fluid fixed-top">
-        <div id="topnav"class="row pt-lg-2 d-none d-lg-flex bg-smoke">
+        <div id="topnav" class="row pt-lg-2 d-none d-lg-flex bg-smoke">
           <!-- Logo -->
           <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
             <a href="{% url 'home' %}" class="nav-link main-logo-link">
@@ -153,7 +153,7 @@
 
       {% block postloadjs %}
       <!-- Toasts Initialization JS, thanks to Richard Ash on Slack! -->
-        <script type="text/javascript">
+        <script>
           var toastElList = [].slice.call(document.querySelectorAll('.toast'))
           var toastList = toastElList.map(function (toastEl) {
             var option = {
