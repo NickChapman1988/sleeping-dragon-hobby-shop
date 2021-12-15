@@ -1,5 +1,6 @@
 # Adapted from Boutique Ado walkthrough project by Code Institute
-
+""" Contexts for Cart app """
+# pylint: disable=no-member
 from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
@@ -8,6 +9,7 @@ from .models import Discount
 
 
 def cart_contents(request):
+    """ Set cart contents """
     discount_id = request.session.get('discount_id', int())
     cart_items = []
     cart_total = 0

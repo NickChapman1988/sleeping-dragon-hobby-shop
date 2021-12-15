@@ -1,4 +1,5 @@
 """ Cart app views """
+# pylint: disable=no-member
 import datetime
 
 from django.shortcuts import (render, redirect, reverse,
@@ -109,7 +110,7 @@ def adjust_cart(request, item_id):
                 cart[item_id] = product.stock
                 messages.success(
                     request, f'Updated {product.name} quantity to {cart[item_id]}')
-            else: 
+            else:
                 messages.warning(
                     request, f'Sorry, you cannot add any more {product.name} to your cart. \
                     We have {product.stock} in stock, \
