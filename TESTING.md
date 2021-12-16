@@ -68,7 +68,7 @@ To perform automated testing, from the project root directory type:
 A total of **68** **Unit Tests** have been written. After **Unit Testing** was implemented, **Unit Tests** were run each time a feature was added or changed.  
 All **68** tests run successfully without errors or warnings, see [Python Unit Testing Validation](media/testing/validation/python/unit-testing-val.jpg).
 
-### Performance
+### Automated Performance Testing
 
 Performance and Quality was tested with the [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=en) 
 extension for [Google Chrome](https://www.google.com/intl/en_uk/chrome/).
@@ -111,3 +111,53 @@ Ensured the website was also responsive on all pages through [Google Mobile Frie
 [Mobile Friendly Tests](media/testing/validation/mobile-friendly-tests)
 
 </details>
+
+## Manual Testing
+
+* Forms testing: to ensure the forms were functioning as they should, I tested each of the forms on different devices and browsers. This was done by iterating through each of the required form fields and attempting to submit without a text input to make sure they resulted in the desired response of 'Please fill out this field'. Each 'required' input was tested individually on all forms to ensure the validation responded appropriately each time. 
+
+* Further forms testing was conducted for Integer and Decimal fields by attempting to enter invalid values, either outside of the accepted range or with an incorrect number of decimals to confirm that the field resulted in the desired response (either stating that the value was invalid, or was outside the accepted range). 
+
+* Quantity input forms on the product detail and cart pages were tested by attempting to forcibly add products above their stock level, by clicking the increase-qty buttons, clicking the input field selector and also by manually entering an excessive quantity. Each of these resulted in the correct response and prevented cart quantity exceeding the product stock quantity, displaying the correct warning to users.
+
+* Links (Internal & External): Each of the links when clicked have been checked so that the user is directed to the desired location. For a better UX experience, all external links included a target="_blank" attribute so that a new browser tab is opened when clicked. <b>It should be noted that the footer policy links currently do not redirect users to the stated locations, but instead direct back to the home page - these will be added in a future development phase.</b>
+
+* Manual testing was conducted to test functions and database entry submissions. In this way most bugs were caught and fixed before they were committed to the repository or live site. The python print() and JavaScript console.log functions were used to output variable values and breakpoints during development to give hints to where faults were occurring and why.
+
+### Testing Environments
+Primary testing was undertaken on a Windows 10 desktop machine with the Google Chrome browser. 
+
+**Desktop testing**
+
+- Platforms:
+  - Custom Desktop (Windows 10)
+  - ASUS E410MA Laptop (Windows 10)
+- Browsers:
+  - Google Chrome
+  - Microsoft Edge
+  - Firefox
+  - Opera
+  - Safari
+
+**Tablet testing**
+
+- Platforms:
+  - Samsung Tab A6 (Android 10)
+  - Samsung Tab A4 (Android 10)
+  - iPad Pro 12.9 2020 (IOS 14)
+- Browsers:
+  - Google Chrome
+  - Firefox
+  - Safari
+
+**Mobile testing**
+
+- Platforms:
+  - Samsung Galaxy S8 (Android 10)
+  - Samsung Galaxy A42 (Android 10)
+  - iPhone 12 Pro (IOS 14)
+  - iPhone 11 (IOS 14)
+- Browsers:
+  - Chrome
+  - FireFox
+  - Safari
