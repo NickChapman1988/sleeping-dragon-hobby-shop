@@ -73,4 +73,4 @@ All **68** tests run successfully without errors or warnings, see [Python Unit T
 Performance and Quality was tested with the [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=en) 
 extension for [Google Chrome](https://www.google.com/intl/en_uk/chrome/).
 
-To improve **Accessibility** and **SEO**, missing *rel="noopener"* and *aria-label* attributes were added to the some of the buttons and links in the **HTML Templates**. *meta description* was added to the head element to improve **SEO**. Heading elements were adjusted to appear in sequentially-descending order to improve **Accessibility**. 
+To improve **Accessibility** and **SEO**, missing *rel="noopener"* and *aria-label* attributes were added to the some of the buttons and links in the **HTML Templates**. *meta description* was added to the head element to improve **SEO**. Heading elements were adjusted to appear in sequentially-descending order to improve **Accessibility**. Form inputs had *label* elemtents added where necessary to improve **Accessability**.
