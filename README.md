@@ -623,3 +623,6 @@ For further information on *Cloning* a [GitHub](https://github.com/) repository,
 * Footer positioning fixed thanks to [this article](https://developer.mozilla.org/en-US/docs/Web/CSS/Layout_cookbook/Sticky_footers)
 
 ## Acknowledgements
+* My Mentor, Nishant Kumar, for his guidance throughout this project, and for all his support throughout the whole course.
+* My family and friends for their feedback and help with testing.
+* As ever, eternal thanks and love to my wife and son for their endless patience, support and lending of devices for testing!

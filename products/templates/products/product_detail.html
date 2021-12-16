@@ -95,11 +95,11 @@
                                             </button>
                                         </div>
                                         {% if product.stock > 0 %}
-                                            <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="{{ product.stock }}" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
-                                            <label for="id_qty_{{ product.id }}">Quantity Input</label>
+                                            <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="{{ product.stock }}" 
+                                            data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}" aria-label="quantity-input">
                                         {% else %}
-                                            <input class="form-control qty_input" type="number" name="quantity" value="0" min="0" max="{{ product.stock }}" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
-                                            <label for="id_qty_{{ product.id }}">Quantity Input</label>
+                                            <input class="form-control qty_input" type="number" name="quantity" value="0" min="0" max="{{ product.stock }}" 
+                                            data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}" aria-label="quantity-input">
                                         {% endif %}
                                         <div class="input-group-append">
                                             <button class="increment-qty btn btn-black rounded-0"

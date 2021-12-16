@@ -18,7 +18,7 @@
     <div class="container mb-2">
         <div class="row">
             <div class="col text-center mt-3">
-                <h3 class="logo-font mt-3 mb-3">Shopping Cart</h3>
+                <h4 class="logo-font mt-3 mb-3">Shopping Cart</h4>
                 <hr class="mb-3">
             </div>
         </div>
@@ -70,8 +70,7 @@
                                                                     <input class="form-control form-control-sm qty_input" type="number"
                                                                         name="quantity" value="{{ item.quantity }}" min="1" max="99"
                                                                         data-item_id="{{ item.item_id }}"
-                                                                        id="id_qty_{{ item.item_id }}">
-                                                                    <label for="id_qty_{{ product.id }}">Quantity Input</label>
+                                                                        id="id_qty_{{ item.item_id }}" aria-label="quantity-input">
                                                                     <div class="input-group-append">
                                                                         <button class="increment-qty btn btn-sm btn-black rounded-0"
                                                                             data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}" aria-label="increase-qty">

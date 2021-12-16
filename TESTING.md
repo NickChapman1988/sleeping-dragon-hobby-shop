@@ -82,22 +82,23 @@ Final [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdco
 Page|Performance|Accessiblity|Best Practices|SEO|
 ----|-----------|------------|--------------|---|
 Home|99|97|100|100
+Products|63*|98|100|100
+Product Detail|98|97|93|100
+Product Add|97|97|100|100
+Product Edit|97|98|100|100
+Product Review|99|97|100|100
+Cart|99|96|100|100
+Checkout|92|98|100|100
+Checkout Success|97|98|100|100
+Login|97|97|100|100
+Logout|99|97|100|100
+Register|98|97|100|100
+User Profile|96|97|100|100
+Order History|98|98|100|100
+Product Management|98|97|100|89*
 
-Products|97|100|100|100
-Product Detail|98|100|100|100
-Product Add|98|100|100|100
-Product Edit|99|100|100|100
-Product Review|98|100|100|100
-Cart|98|100|100|100
-Checkout|92|100|100|100
-Checkout Success|97|100|100|100
-Login|99|100|100|100
-Logout|99|100|100|100
-Register|99|100|100|100
-User Profile|98|100|100|100
-Order History|98|100|100|100
-
-Order Contact|98|100|100|100
+* As noted, performance on the Products page is severely impacted by the sheer quantity of images, as there are over 500 products loading. While it may not have been the best approach to use this much data for the purposes of this project, it is a truer reflection of the size of an existing ecommerce database. Due to the timescale of this project, the size of the dataset and the necessary steps to resolve, it is not feasible to implement further improvements at this point in development, but should be addressed in a future development phase especially if the application is adopted in place of the existing business site.
+* The SEO score for the Product Management page is much lower than any other page on the site due to the lack of a *href* attribute on the #delete-category-btn element. As the *href* is dynamically added with the use of a JavaScipt script dependent on the selector value, and also because the Product Management page is only accessible to admin users (and thus would not be accessible directly from search engine results) I do not consider this lower score to be an issue. 
 
 
-See [Final Lighthouse Reports](media/testing/validation/performance/final).
+See [Final Lighthouse Reports](media/testing/validation/performance).
