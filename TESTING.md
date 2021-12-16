@@ -74,3 +74,5 @@ Performance and Quality was tested with the [Lighthouse](https://chrome.google.c
 extension for [Google Chrome](https://www.google.com/intl/en_uk/chrome/).
 
 To improve **Accessibility** and **SEO**, missing *rel="noopener"* and *aria-label* attributes were added to the some of the buttons and links in the **HTML Templates**. *meta description* was added to the head element to improve **SEO**. Heading elements were adjusted to appear in sequentially-descending order to improve **Accessibility**. Form inputs had *label* elemtents added where necessary to improve **Accessability**.
+
+To improve **Best Practices** and **Performance**, images were resized to 300px x 300px and compressed. Performance could be improved further by converting images to a next-gen format like WebP; however, due to the time constraints of the project this would need to be done as part of a future development phase, as the fixture files currently all refer to .png or .jpg image filepaths and converting images to WebP would also require changing every image filepath. 
