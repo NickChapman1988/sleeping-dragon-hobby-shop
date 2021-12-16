@@ -4,10 +4,15 @@
 
 ### [See live site.](https://sleeping-dragon-hobby-shop.herokuapp.com/)
 
-Assessor login credentials:
+Assessor test account credentials:
 
-Username: 
-Password: 
+Username: testerAccount
+Password: xS39c9Tmnk=RTv3m
+
+Assessor superuser test account credentials:
+
+Username: testAdmin
+Password: Jvw3ZuuFpqNL4qvb
 
 ## Table of Contents
 

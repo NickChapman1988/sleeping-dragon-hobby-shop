@@ -3,23 +3,16 @@
 ## Contents 
 - [Automated Testing](#automated-testing)
     - [HTML](#html)
-    - [Custom CSS Styling](#custom-css-styling)
-    - [JavaScript Code Testing](#javascript-code-testing)
-    - [Python Code Testing](#python-code-testing)
-    - [Automated Performance And Quality Testing](#automated-performance-and-quality-testing)
-- [User Stories Testing](#user-stories-testing)
+    - [CSS](#css)
+    - [JavaScript](#javascript)
+    - [Python](#python)
+    - [Python Unit Tests](#python-unit-tests)
+    - [Automated Performance Testing](#automated-performance-testing)
 - [Manual Testing](#manual-testing)
-    - [Features](#features)
-        - [Home](#home)
-        - [Base Template](#base-template)
-        - [User Authentication](#user-authentication)
-        - [Contact](#contact)
-        - [Products](#products)
-        - [Basket](#basket)
-        - [Checkout](#checkout)
-        - [User Profile](#user-profile)
-    - [Form Validation](#form-validation)
     - [Responsive Design Testing](#responsive-design-testing)
+    - [Testing Environments](#testing-environments)
+    
+    - [Form Validation](#form-validation)
     - [Browser Compatibility Testing](#browser-compatibility-testing)
     - [Stripe Webhook Handler Testing](#stripe-webhook-handler-testing)
     - [Restricted Features Security Testing](#restricted-features-security-testing)
@@ -112,6 +105,7 @@ Ensured the website was also responsive on all pages through [Google Mobile Frie
 
 </details>
 
+
 ## Manual Testing
 
 * Forms testing: to ensure the forms were functioning as they should, I tested each of the forms on different devices and browsers. This was done by iterating through each of the required form fields and attempting to submit without a text input to make sure they resulted in the desired response of 'Please fill out this field'. Each 'required' input was tested individually on all forms to ensure the validation responded appropriately each time. 
@@ -123,6 +117,18 @@ Ensured the website was also responsive on all pages through [Google Mobile Frie
 * Links (Internal & External): Each of the links when clicked have been checked so that the user is directed to the desired location. For a better UX experience, all external links included a target="_blank" attribute so that a new browser tab is opened when clicked. <b>It should be noted that the footer policy links currently do not redirect users to the stated locations, but instead direct back to the home page - these will be added in a future development phase.</b>
 
 * Manual testing was conducted to test functions and database entry submissions. In this way most bugs were caught and fixed before they were committed to the repository or live site. The python print() and JavaScript console.log functions were used to output variable values and breakpoints during development to give hints to where faults were occurring and why.
+
+* Admin-only access was tested by attempting to gain access to admin-only pages with a non-admin test account, by manually entering the url into the address bar. These tests all resulted in the desired result, displaying an error message to the user ('Sorry, only store owners can do that') and redirecting the user to the previous page. 
+
+* Authenticated access was tested in the same way, by attempting to access those features that are restricted to registered users (User Profile, Order History, Review Product). These successfully redirect unregistered users to the login page.
+
+* The Stripe payment system was thoroughly tested to ensure all checkouts worked as expected. This was done using the Stripe API test keys and the test card numbers provided to simulate successful, authentication required and failed checkouts. Stripe webhooks were tested to ensure the correct response was received, and the app views were testing to ensure each of them functioned as expected, including generating order confirmations, sending confirmation emails, saving user delivery information to user profile (for registered users) and populating order history with the correct data. Test were also run to simulate form submission errors by commenting out code; these resulted in the appropriate webhook response and the order being created in the database by the webhook as expected. 
+
+### Responsive Design Testing
+
+Responsive design has been tested by using Chrome DevTools to emulate viewing the website on a number of devices with varying screen dimensions, including iPhone 5/SE, iPhone 6/7/8, iPhone 6/7/8 plus, iPhone 11, iPad, iPad Pro, Moto G4, Galaxy S5, Surface Duo, Galaxy Fold, Widescreen Laptop and Desktop PC. The site was tested on screen widths from 280px up to 1920px.
+
+Responsive design was then further tested using the [Responsive Viewer](https://chrome.google.com/webstore/detail/responsive-viewer/inmopeiepgfljkpkidclfgbgbmfcennb/related?hl=en) plugin for Chrome. This emulates viewing the website on a large number of devices, including iPhone XR, iPhone XS Max, iPhone XS, iPhone X, Galaxy S9 Plus, Galaxy S8 Plus, Galaxy S9, Note 8, Note S8, Pixel 3 and Pixel 3XL.
 
 ### Testing Environments
 Primary testing was undertaken on a Windows 10 desktop machine with the Google Chrome browser. 
