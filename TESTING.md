@@ -75,4 +75,29 @@ extension for [Google Chrome](https://www.google.com/intl/en_uk/chrome/).
 
 To improve **Accessibility** and **SEO**, missing *rel="noopener"* and *aria-label* attributes were added to the some of the buttons and links in the **HTML Templates**. *meta description* was added to the head element to improve **SEO**. Heading elements were adjusted to appear in sequentially-descending order to improve **Accessibility**. Form inputs had *label* elemtents added where necessary to improve **Accessability**.
 
-To improve **Best Practices** and **Performance**, images were resized to 300px x 300px and compressed. Performance could be improved further by converting images to a next-gen format like WebP; however, due to the time constraints of the project this would need to be done as part of a future development phase, as the fixture files currently all refer to .png or .jpg image filepaths and converting images to WebP would also require changing every image filepath. 
+To improve **Best Practices** and **Performance**, images were resized to 300px x 300px and compressed. Performance could be improved further by converting images to a next-gen format like WebP; however, due to the time constraints of the project this would need to be done as part of a future development phase, as the fixture files currently all refer to .png or .jpg image filepaths and converting images to WebP would also require changing every image filepath. Due to the sheer amount of products and associated images, **Performance** is heavily dependent on how many images the site is required to load. Upgrading the server to use HTTP/2 would drastically improve **Performance** scores, but is beyond the scope of this project. However, this is mitigated somewhat by the fact that, although users *can* browse all products at once, it is highly unlikely that the typical user would utilise the site in this way rather than using the specific navigation menus and search functionality. 
+
+Final [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=en) scores are tabulated below:  
+
+Page|Performance|Accessiblity|Best Practices|SEO|
+----|-----------|------------|--------------|---|
+Home|99|97|100|100
+
+Products|97|100|100|100
+Product Detail|98|100|100|100
+Product Add|98|100|100|100
+Product Edit|99|100|100|100
+Product Review|98|100|100|100
+Cart|98|100|100|100
+Checkout|92|100|100|100
+Checkout Success|97|100|100|100
+Login|99|100|100|100
+Logout|99|100|100|100
+Register|99|100|100|100
+User Profile|98|100|100|100
+Order History|98|100|100|100
+
+Order Contact|98|100|100|100
+
+
+See [Final Lighthouse Reports](media/testing/validation/performance/final).

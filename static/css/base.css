@@ -239,8 +239,8 @@ li.nav-item > a.nav-link.show {
 
 /* Restrict image size on product page */
 .product-image {
-    max-width: 280px;
-    max-height: 280px;
+    max-width: 300px;
+    max-height: 300px;
 }
 
 /* Increase image size on product detail page */
