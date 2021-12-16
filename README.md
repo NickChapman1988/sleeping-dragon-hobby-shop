@@ -514,6 +514,8 @@ The site allows admin users to add, edit, and delete products and product catego
 
 ## Testing
 
+Details of full testing can be found in [TESTING.md](TESTING.md)
+
 
 ## Deployment
 The project has been developed using [Gitpod](https://www.Gitpod.io/) and [GitHub](https://github.com/). 
