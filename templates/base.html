@@ -8,6 +8,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="description" content="Sleeping Dragon Hobby Shop - providing scenic modelling and hobby supplies!">
     {% endblock %}
 
     {% block extra_meta %}
@@ -58,7 +59,7 @@
               <div class="input-group w-100">
                 <input type="text" class="form-control border border-black rounded-0" name="query" placeholder="Search">
                 <div class="input-group-append">
-                  <button class="form-control btn btn-black border border-black rounded-0" type="submit">
+                  <button class="form-control btn btn-black border border-black rounded-0" aria-label="search-button" type="submit">
                     <span class="icon">
                       <i class="fas fa-search"></i>
                     </span>
@@ -117,8 +118,8 @@
           </nav>
         </div>
         <div id="delivery-banner" class="row text-center">
-          <div class="col bg-black text-white">
-            <h4 id="delivery-banner-heading" class="logo-font my-1">Free UK delivery on orders over £{{ free_delivery_threshold }}!</h4>                
+          <div class="col text-white">
+            <h3 id="delivery-banner-heading" class="logo-font my-1">Free UK delivery on orders over £{{ free_delivery_threshold }}!</h3>                
           </div>            
       </div>
       </header>
