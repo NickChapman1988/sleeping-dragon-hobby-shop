@@ -11,13 +11,8 @@
 - [Manual Testing](#manual-testing)
     - [Responsive Design Testing](#responsive-design-testing)
     - [Testing Environments](#testing-environments)
-    
-    - [Form Validation](#form-validation)
-    - [Browser Compatibility Testing](#browser-compatibility-testing)
-    - [Stripe Webhook Handler Testing](#stripe-webhook-handler-testing)
-    - [Restricted Features Security Testing](#restricted-features-security-testing)
-- [Bugs Fixed During Testing](#bugs-fixed-during-testing)
-- [Bugs Remaining](#bugs-remaining)
+- [Project Bugs and Solutions](#project-bugs-and-solutions)
+- [Known Issues](#known-issues)
 
 ## Automated Testing 
 
@@ -167,3 +162,17 @@ Primary testing was undertaken on a Windows 10 desktop machine with the Google C
   - Chrome
   - FireFox
   - Safari
+
+## Project Bugs and Solutions
+
+* The increase-qty button on **Product Detail** pages were set to a max-value equal to the product stock; however, the input field itself was still allowing users to select a quantity greater than the product stock value. This issue was solved by changing the max-value of the input to `{{ product.stock }}` so that it dynamically adapted to the stock level of each product.
+* Following the previous issue, after testing it became that this did not prevent users adding products to the cart multiple times to exceed the product stock value, or from navigating to the cart page and updating the item quantity to a greater value. This was addressed by updating the Cart app views logic (add_to_cart and adjust_cart) so that they checked the cart item quantity against the product stock before updating/adding the product to the cart. Now users are prevented from adding more to their cart than are in stock, with an error message displayed to inform users that no more of that product can be added.
+* During development several automatic Heroku deployments failed and generated a Programming Error in the app:
+
+![Image](media/testing/heroku-bug.jpg)
+
+This was caused by database migrations being out of sync between GitPod and Heroku. Thanks to [this thread](https://stackoverflow.com/questions/48083216/django-on-heroku-programmingerror-at-relation-does-not-exist) on Stack Overflow, I was able to run `heroku run manage.py migrate` and fix the issue. 
+
+## Known Issues
+
+None known.
