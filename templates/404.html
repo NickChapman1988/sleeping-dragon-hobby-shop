@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col">
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="container mb-2" id="404-error">
+        <div class="row">
+            <div class="col text-center mt-3">
+                <h4 class="logo-font mt-3 mb-3">Error</h4>
+                <hr class="mb-3">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-8 offset-md-2">
+                <div class="row pt-3">
+                    <div class="col-12">
+                        <p class="text-center">
+                            Oops, looks like there was an error
+                        </p>
+                        <p class="text-center">
+                            Hit the button below to return to civilisation......
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <a href="{% url 'products' %}" class="btn btn-blue btn-lg">
+                            <span class="icon">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="text-uppercase">Keep Shopping</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>                                                              
+    </div>
+{% endblock %}
