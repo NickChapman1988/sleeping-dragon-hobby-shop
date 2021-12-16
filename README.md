@@ -384,7 +384,9 @@ The Register page allows unregistered users to create an account and access furt
 
 ### Images
 
-* The home page background image is by [Pawel Czerwinski](https://unsplash.com/@pawel_czerwinski?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/paint-minimal-background?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText), rotated 90 degrees anti-clockwise to serve as a landscape background with the "swirl" moving from top-left to bottom-right in order to fit the initial vision for the home page design. The bright pink adds another accent colour to catch the user's attention, while the blue and off-white match the overall colour scheme of the site. The swirls of colour also add a visual connection to the site's purpose (i.e. selling paints
+* The home page background image is by [Pawel Czerwinski](https://unsplash.com/@pawel_czerwinski?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/paint-minimal-background?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText), rotated 90 degrees anti-clockwise to serve as a landscape background with the "swirl" moving from top-left to bottom-right in order to fit the initial vision for the home page design. The bright pink adds another accent colour to catch the user's attention, while the blue and off-white match the overall colour scheme of the site. The swirls of colour also add a visual connection to the site's purpose (i.e. selling paints)
+
+* Product images are taken from the [existing company site](https://www.sleepingdragonhobbyshop.co.uk/), and used with permission from the respective manufacturers as established trade account holders. 
 
 ### Colours
 
@@ -425,9 +427,8 @@ The site allows admin users to add, edit, and delete products and product catego
     - The site enforces the use of HTTPS to ensure user communications and data are transmitted securely
     - Passwords are stored in hashed form so can't be stolen even if the website were to be hacked
 * (US06): Allauth offers password resetting routes and links
-* (US07): 
+* (US07): Allauth automatically sends confirmation emails to newly registered users' email addresses
 * (US08): Users have a personal user profile which can store some basic checkout information and provides links to their past orders
-* (US09): 
 
 #### Sorting and Searching
 * (US10): Products can be viewed by rating, price and category from the main navbar, or on category pages via the sort selector
@@ -447,10 +448,6 @@ The site allows admin users to add, edit, and delete products and product catego
 * (US20): After checkout a checkout success page is generated, giving the user details of their order items, delivery info and billing info
 * (US21): After checkout an email is generated with the order information
 
-#### Sales and Reports
-* (US22):
-* (US23): 
-* (US24): 
 #### Admin and Store Management
 * (US25): Product Management page (admin only) allows admin to create new products or categories
 * (US26): Individual products can be edited by admin users from all product pages, or from individual product detail pages
@@ -461,6 +458,28 @@ The site allows admin users to add, edit, and delete products and product catego
     
 ### Features Left to Implement
 
+#### Registration and User Accounts
+* (US09): Social account login is not yet implemented
+
+#### Sales and Reports
+* (US22): Sales and Reports back-end is not yet implemented
+    - Admin users can currently view the latest half-dozen orders in the Product Management page
+    - Full functionality would allow admin users to view all orders in a separate page
+    - Orders would be searchable, and sortable by date 
+* (US23): Sales and Reports back-end is not yet implemented
+    Planned Features:
+    - Full Product list, searchable and sortable by name, SKU, stock, price and category
+    - Full Product sales data, with filters for time period (e.g. Today, Last 7 Days, This Month etc.) 
+    - Further filters to view category sales, or specific brands
+    - Financial data allowing admin users to view sales totals over time, as well as discounts used and potentially tax calculations.
+* (US24): Sales and Reports back-end is not yet implemented
+    - Full functionality would allow admin users to view all orders in a separate page
+    - Orders would be searchable, and sortable by date
+
+#### Other
+* Currently, site policies and pages linked in the **Footer** element simply redirect back to the homepage. These policies would be beneficial to add in an active business application, but for the scope of this project they add no current value and thus have not been implemented. 
+
+* As noted in [TESTING.md](TESTING.md), if the site were to develop into an active business application, the issue of product images would need to be addressed. Using a HTTP/2 server, establishing long-term caching for static files and converting images to WebP format would greatly improve site performance. 
 
 ## Technologies Used
 
@@ -469,7 +488,6 @@ The site allows admin users to add, edit, and delete products and product catego
 * [CSS](https://en.wikipedia.org/wiki/CSS)
 * [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 * [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
-
 
 #### Database 
 * Development - [SQLite](https://docs.djangoproject.com/en/3.2/ref/databases/#sqlite-notes)
@@ -521,7 +539,6 @@ The site allows admin users to add, edit, and delete products and product catego
 
 Details of full testing can be found in [TESTING.md](TESTING.md)
 
-
 ## Deployment
 The project has been developed using [Gitpod](https://www.Gitpod.io/) and [GitHub](https://github.com/). 
 The project was regularly committed to [GitHub](https://github.com/) during the initial development phase.  
@@ -540,6 +557,11 @@ The [Gitpod Browser Extension](https://www.Gitpod.io/docs/browser-extension/) is
 [template](https://github.com/Code-Institute-Org/gitpod-full-template).
 * Click on the green "gitpod" button to open [Gitpod](https://gitpod.io/), a cloud-based version control software or IDE, which was used to write all code for this project.
 * It was then pushed or saved in the terminal to Github where it is stored in a [repository](https://github.com/NickChapman1988/sleeping-dragon-hobby-shop)
+</details>
+
+<details><summary>Fixture Files</summary>
+
+* Fixture files were used to create the database entries, based on a .CSV file of existing product data from the existing company site. The .CSV file was edited as necessary to ensure Products and Categories matched their respective Django models, and then a .JSON converter was used to convert the .CSV into two .JSON fixture files. These were added to a fixtures directory in the Products app, and loaded using the commands: `python3 manage.py loaddata categories` followed by `python3 manage.py loaddata products`
 </details>
 
 <details>
@@ -569,7 +591,7 @@ which lists all the **Python** dependencies.
 * Run `python3 manage.py migrate` at the terminal to apply the migrations to the new POSTGRES database.
 * Note - if you encounter `error: django.db.utils.OperationalError: FATAL:  role "xxxxxxxxxxx" during configuration of POSTGRESQL`, run `unset PGHOSTADDR` at the terminal.
 * Run `python3 manage.py loaddata db.json` at the terminal to load the data from the local json created earlier 
-* If using fixture files, run `python3 manage.py loaddata fixturefilename` for each fixture file, making sure to load in the correct order (i.e load any fixtures with dependencies *after* loading the files they depend on)
+* IF USING FIXTURE FILES, run `python3 manage.py loaddata fixturefilename` for each fixture file, making sure to load in the correct order (i.e load any fixtures with dependencies *after* loading the files they depend on)
 * Install `gunicorn` and re-run `pip freeze > requirements.txt` at the terminal.
 * Create a `Procfile`, declaring the process type in the root of the project. 
 * The `Procfile` should have only one line that reads `web: gunicorn appname.wsgi:application`, with no empty white space or lines, where `appname` is the application name.
@@ -610,6 +632,7 @@ see the [GitHub Documentation](https://docs.github.com/en/github/getting-started
 
 <details>
 <summary>Making a local Clone</summary>
+
 * Go to the [Project Code Repository Location](https://github.com/NickChapman1988/sleeping-dragon-hobby-shop) on [GitHub](https://github.com/).
 * Select the *Code* dropdown and choose *GitHub CLI* under *Clone*. This will give you a *URL* that may be copied into the clipboard. 
 * Open the Git Bash command line interface in [Gitpod](https://www.Gitpod.io/).
@@ -623,11 +646,17 @@ For further information on *Cloning* a [GitHub](https://github.com/) repository,
 [GitHub Documentation](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
 </details>
 
-
 ## Credits
+* Background image by [Pawel Czerwinski](https://unsplash.com/@pawel_czerwinski?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/paint-minimal-background?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
 * Footer positioning fixed thanks to [this article](https://developer.mozilla.org/en-US/docs/Web/CSS/Layout_cookbook/Sticky_footers)
+* Thanks to Suzy Bennett on Slack for her guidance on solving the dependency issues following the latest GitPod update [here](https://code-institute-room.slack.com/archives/CP07TN38Q/p1638798780089700)
+* Thanks to Igor Basuga on Slack for the [Dev Tip on Common Webhook Errors](https://code-institute-room.slack.com/archives/C0L316Z96/p1634832233139000)
+* Credit to Alvin Zedendahl on Slack for solving the ['Heroku Bad Request'](https://code-institute-room.slack.com/archives/C7HS3U3AP/p1623931828490400?thread_ts=1602245840.238800&cid=C7HS3U3AP) error resulting from an extra `/` in the static files filepath
+* Credit to Richard Ash on Slack for the [Toast Initialisation JavaScript](https://code-institute-room.slack.com/archives/C7HS3U3AP/p1633769555244600?thread_ts=1633696310.225500&cid=C7HS3U3AP)
+* Huge credit (and thank you!) to Chris Zielinski and Code Institute for the **Boutique Ado** walkthrough project, which formed the basis of this project and has provided a lot of the code, either as-is or adapted. 
 
 ## Acknowledgements
 * My Mentor, Nishant Kumar, for his guidance throughout this project, and for all his support throughout the whole course.
+* Everyone at Code Institute for developing all the course material, building the CI Slack Community, and employing fantastic tutors.
 * My family and friends for their feedback and help with testing.
 * As ever, eternal thanks and love to my wife and son for their endless patience, support and lending of devices for testing!
