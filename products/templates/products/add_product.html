@@ -16,7 +16,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center mt-3">
-                <h2 class="logo-font mb-4">Product Management</h2>
+                <h4 class="logo-font mb-4">Product Management</h4>
                 <h5 class="text-muted">Add a Product</h5>
                 <hr class="mb-3">
             </div>
@@ -34,7 +34,7 @@
                     {% endfor %}
                     <div class="text-end">
                         <a href="{% url 'product_management' %}" class="btn btn-blue rounded-0">Cancel</a>
-                        <button type="submit" class="btn btn-outline-black rounded-0">Add Product</button>
+                        <button type="submit" class="btn btn-outline-black rounded-0" aria-label="Add Product">Add Product</button>
                     </div>
                 </form>
             </div>
