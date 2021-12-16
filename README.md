@@ -1,18 +1,18 @@
 # Sleeping Dragon Hobby Shop
 
-![Image]
-
 ### [See live site.](https://sleeping-dragon-hobby-shop.herokuapp.com/)
 
-Assessor test account credentials:
+![Image](media/testing/sleeping-dragon.png)
 
-Username: testerAccount
-Password: xS39c9Tmnk=RTv3m
+**Assessor test account credentials:**
 
-Assessor superuser test account credentials:
+- Username: testerAccount
+- Password: xS39c9Tmnk=RTv3m
 
-Username: testAdmin
-Password: Jvw3ZuuFpqNL4qvb
+**Assessor superuser test account credentials:**
+
+- Username: testAdmin
+- Password: Jvw3ZuuFpqNL4qvb
 
 ## Table of Contents
 
@@ -450,16 +450,21 @@ The site allows admin users to add, edit, and delete products and product catego
 
 #### Admin and Store Management
 * (US25): Product Management page (admin only) allows admin to create new products or categories
+    - Product Management page does not currently have features to allow admin users to add new, or edit existing, Discount codes. This functionality will be added in a future development phase.
 * (US26): Individual products can be edited by admin users from all product pages, or from individual product detail pages
     - Categories can be edited from Product Management page
 * (US27): Admin users can delete individual products from all product pages, or from individual product detail pages
     - Admin users can delete categories from Product Management page
-    - To ensure products aren't deleted accidentally, when delete button is pressed a modal is shown asking the usre to confirm
+    - To ensure products aren't deleted accidentally, when delete button is pressed a modal is shown asking the user to confirm
     
 ### Features Left to Implement
 
 #### Registration and User Accounts
 * (US09): Social account login is not yet implemented
+
+#### Admin and Store Management
+* (US25): Product Management page currently lacks ability to add or edit Discount codes, so this can only be done through the Django admin at present.
+    - Before any more functionality is added in future development phases, it would be advisable to move the Product Management functionality into a standalone app in its own right, in order to maintain a cleaner and more manageable code base.
 
 #### Sales and Reports
 * (US22): Sales and Reports back-end is not yet implemented
@@ -654,6 +659,7 @@ For further information on *Cloning* a [GitHub](https://github.com/) repository,
 * Credit to Alvin Zedendahl on Slack for solving the ['Heroku Bad Request'](https://code-institute-room.slack.com/archives/C7HS3U3AP/p1623931828490400?thread_ts=1602245840.238800&cid=C7HS3U3AP) error resulting from an extra `/` in the static files filepath
 * Credit to Richard Ash on Slack for the [Toast Initialisation JavaScript](https://code-institute-room.slack.com/archives/C7HS3U3AP/p1633769555244600?thread_ts=1633696310.225500&cid=C7HS3U3AP)
 * Huge credit (and thank you!) to Chris Zielinski and Code Institute for the **Boutique Ado** walkthrough project, which formed the basis of this project and has provided a lot of the code, either as-is or adapted. 
+* Thanks to the various user in [this thread](https://stackoverflow.com/questions/48083216/django-on-heroku-programmingerror-at-relation-does-not-exist) on Stack Overflow for the solution to the Heroku Programming Error.
 
 ## Acknowledgements
 * My Mentor, Nishant Kumar, for his guidance throughout this project, and for all his support throughout the whole course.
