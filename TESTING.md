@@ -100,5 +100,14 @@ Product Management|98|97|100|89*
 * As noted, performance on the Products page is severely impacted by the sheer quantity of images, as there are over 500 products loading. While it may not have been the best approach to use this much data for the purposes of this project, it is a truer reflection of the size of an existing ecommerce database. Due to the timescale of this project, the size of the dataset and the necessary steps to resolve, it is not feasible to implement further improvements at this point in development, but should be addressed in a future development phase especially if the application is adopted in place of the existing business site.
 * The SEO score for the Product Management page is much lower than any other page on the site due to the lack of a *href* attribute on the #delete-category-btn element. As the *href* is dynamically added with the use of a JavaScipt script dependent on the selector value, and also because the Product Management page is only accessible to admin users (and thus would not be accessible directly from search engine results) I do not consider this lower score to be an issue. 
 
-
 See [Final Lighthouse Reports](media/testing/validation/performance).
+
+### Mobile Friendly Tests
+
+Ensured the website was also responsive on all pages through [Google Mobile Friendly Test](https://search.google.com/test/mobile-friendly).
+
+<details><summary><b>Mobile Friendly Test</b></summary>
+
+[Mobile Friendly Tests](media/testing/validation/mobile-friendly-tests)
+
+</details>
