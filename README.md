@@ -1,6 +1,6 @@
 # Sleeping Dragon Hobby Shop
 
-### [See live site.](https://sleeping-dragon-hobby-shop.herokuapp.com/)
+### [See live site.](https://sleeping-dragon-hobby-shop.onrender.com/)
 
 ![Image](media/testing/sleeping-dragon.png)
 
